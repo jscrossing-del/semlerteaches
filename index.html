@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Semler Teaches | Bass Fishing Lessons, Reel Log App, and Smarter Fishing</title>
-  <meta name="description" content="Semler Teaches helps bass anglers fish smarter with real trip breakdowns, bait patterns, seasonal lessons, and the Reel Log fishing app." />
+  <title>Semler Teaches | Wood Shop Lesson Plans, Teaching Resources & Apps</title>
+  <meta name="description" content="Semler Teaches is a high school wood shop teacher sharing lesson plans, project plans, teaching resources, apps, and real classroom ideas." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
@@ -30,7 +30,7 @@
       line-height: 1.6;
     }
 
-    /* ── Header / Hero ── */
+    /* ── Header ── */
     header {
       position: relative;
       overflow: hidden;
@@ -44,8 +44,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 80% 15%, rgba(201,150,58,0.30), transparent 30%),
-        radial-gradient(circle at 15% 85%, rgba(42,102,56,0.35), transparent 35%);
+        radial-gradient(circle at 80% 15%, rgba(201,150,58,0.28), transparent 30%),
+        radial-gradient(circle at 15% 85%, rgba(42,102,56,0.32), transparent 35%);
       pointer-events: none;
     }
 
@@ -66,6 +66,8 @@
       font-size: 1.4rem;
       font-weight: 900;
       letter-spacing: -0.3px;
+      text-decoration: none;
+      color: white;
     }
 
     .logo span { color: var(--gold); }
@@ -143,35 +145,14 @@
     }
 
     .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,0.18); }
+    .btn-primary  { background: white; color: var(--accent-dark); }
+    .btn-secondary { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.65); }
+    .btn-green    { background: var(--accent); color: white; }
+    .btn-dark     { background: var(--accent-dark); color: white; }
+    .btn-outline  { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+    .btn-gold     { background: var(--gold); color: white; }
 
-    .btn-primary {
-      background: white;
-      color: var(--accent-dark);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: white;
-      border: 2px solid rgba(255,255,255,0.65);
-    }
-
-    .btn-green {
-      background: var(--accent);
-      color: white;
-    }
-
-    .btn-dark {
-      background: var(--accent-dark);
-      color: white;
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--accent);
-      border: 2px solid var(--accent);
-    }
-
-    /* ── Main layout ── */
+    /* ── Main ── */
     main {
       max-width: 1100px;
       margin: 0 auto;
@@ -201,8 +182,15 @@
       font-size: 1.05rem;
     }
 
-    /* ── 3-col cards ── */
-    .grid {
+    /* ── Cards ── */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+
+    .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
@@ -218,41 +206,37 @@
       transition: box-shadow 0.15s, transform 0.15s;
     }
 
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.10);
-    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.10); }
 
     .card-media {
-      height: 120px;
+      height: 110px;
       display: flex;
       align-items: flex-end;
-      padding: 16px 20px;
-      font-size: 2.6rem;
+      padding: 14px 18px;
+      font-size: 2.4rem;
     }
 
-    .card-media.apps    { background: linear-gradient(135deg, #183d2d, #2a6638 60%, #c9963a); }
-    .card-media.fishing { background: linear-gradient(135deg, #163d57, #2a6638 55%, #c9963a); }
-    .card-media.trips   { background: linear-gradient(135deg, #1d352d, #4a7a44 55%, #c9963a); }
-    .card-media.post1   { background: linear-gradient(135deg, #163d57, #2a6638, #c9963a); }
-    .card-media.post2   { background: linear-gradient(135deg, #1a3545, #2f5e70 55%, #5a8e80); }
-    .card-media.post3   { background: linear-gradient(135deg, #172c44, #2a6638, #c9963a); }
+    .cm-plans   { background: linear-gradient(135deg, #3b2000, #7a4a10 60%, #c9963a); }
+    .cm-apps    { background: linear-gradient(135deg, #183d2d, #2a6638 60%, #c9963a); }
+    .cm-blog    { background: linear-gradient(135deg, #163d57, #1e5c80 60%, #4a9ab5); }
+    .cm-fishing { background: linear-gradient(135deg, #0d2b1a, #2a6638 55%, #c9963a); }
+    .cm-post1   { background: linear-gradient(135deg, #3b2000, #7a4a10, #c9963a); }
+    .cm-post2   { background: linear-gradient(135deg, #163d57, #2a6638, #c9963a); }
+    .cm-post3   { background: linear-gradient(135deg, #1a1a3d, #2a3d8a 55%, #5a7acc); }
 
-    .card-body {
-      padding: 20px 22px 22px;
-    }
+    .card-body { padding: 18px 20px 20px; }
 
     .card h3 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
       letter-spacing: -0.2px;
     }
 
     .card p {
       color: var(--muted);
-      font-size: 0.93rem;
-      margin-bottom: 16px;
+      font-size: 0.9rem;
+      margin-bottom: 14px;
       line-height: 1.55;
     }
 
@@ -260,28 +244,7 @@
       color: var(--accent);
       font-weight: 700;
       text-decoration: none;
-      font-size: 0.93rem;
-    }
-
-    /* ── App screenshot showcase ── */
-    .app-showcase {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 12px;
-      margin-bottom: 60px;
-    }
-
-    .app-shot {
-      background: #061722;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.07);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.14);
-    }
-
-    .app-shot img {
-      width: 100%;
-      display: block;
+      font-size: 0.9rem;
     }
 
     /* ── Feature rows ── */
@@ -311,9 +274,7 @@
       line-height: 1.7;
     }
 
-    .feature-section {
-      margin-bottom: 60px;
-    }
+    .feature-section { margin-bottom: 60px; }
 
     .visual-panel {
       border-radius: 20px;
@@ -330,7 +291,30 @@
       background: #061722;
     }
 
-    /* ── Social cards ── */
+    .visual-placeholder {
+      border-radius: 20px;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      gap: 12px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+
+    .visual-placeholder span {
+      font-size: 0.9rem;
+      font-weight: 600;
+      opacity: 0.7;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    .vp-wood  { background: linear-gradient(135deg, #3b2000, #7a4a10 60%, #c9963a); color: white; }
+    .vp-app   { background: linear-gradient(135deg, #183d2d, #2a6638 60%, #c9963a); color: white; }
+
+    /* ── Social ── */
     .social-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -346,23 +330,10 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.05);
     }
 
-    .social-card h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
+    .social-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+    .social-card p { color: var(--muted); margin-bottom: 18px; font-size: 0.95rem; }
 
-    .social-card p {
-      color: var(--muted);
-      margin-bottom: 18px;
-      font-size: 0.95rem;
-    }
-
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    .social-links { display: flex; flex-wrap: wrap; gap: 10px; }
 
     .social-links a {
       display: inline-block;
@@ -392,17 +363,35 @@
       box-shadow: 0 12px 36px rgba(0,0,0,0.14);
     }
 
-    .cta-banner h2 {
-      font-size: 1.6rem;
-      font-weight: 800;
-      letter-spacing: -0.4px;
-      margin-bottom: 8px;
+    .cta-banner h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 8px; }
+    .cta-banner p  { opacity: 0.88; font-size: 1rem; }
+
+    /* ── Store badges ── */
+    .store-badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
     }
 
-    .cta-banner p {
-      opacity: 0.88;
-      font-size: 1rem;
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      border: 2px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      transition: border-color 0.15s, box-shadow 0.15s;
     }
+
+    .store-badge:hover { border-color: var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .store-badge .badge-icon { font-size: 1.4rem; }
+    .store-badge .badge-text small { display: block; font-size: 0.72rem; font-weight: 600; color: var(--muted); }
 
     /* ── Footer ── */
     footer {
@@ -414,14 +403,13 @@
     }
 
     /* ── Responsive ── */
-    @media (max-width: 1100px) {
-      .app-showcase { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 1000px) {
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 900px) {
-      .grid, .social-grid { grid-template-columns: 1fr 1fr; }
+      .grid-3, .social-grid { grid-template-columns: 1fr 1fr; }
       .feature, .cta-banner { grid-template-columns: 1fr; }
-      .feature .visual-panel { order: -1; }
       .cta-banner { text-align: center; }
       .cta-banner .button-row { justify-content: center; }
     }
@@ -429,8 +417,7 @@
     @media (max-width: 640px) {
       .nav-links a { margin-left: 14px; font-size: 0.85rem; }
       .hero { padding: 52px 0 64px; }
-      .grid { grid-template-columns: 1fr; }
-      .app-showcase { grid-template-columns: repeat(2, 1fr); }
+      .grid-3, .grid-4 { grid-template-columns: 1fr; }
       .cta-banner { padding: 30px 24px; }
     }
   </style>
@@ -439,183 +426,187 @@
 
   <header>
     <div class="nav">
-      <div class="logo">Semler<span>Teaches</span></div>
+      <a class="logo" href="index.html">Semler<span>Teaches</span></a>
       <nav class="nav-links">
-        <a href="#reel-log">Reel Log</a>
-        <a href="#lessons">Lessons</a>
-        <a href="#download">Download</a>
+        <a href="lesson-plans.html">Lesson Plans</a>
+        <a href="#apps">Apps</a>
+        <a href="#blog">Blog</a>
         <a href="#follow">Follow</a>
       </nav>
     </div>
 
     <section class="hero">
-      <div class="hero-badge">🐟 Bass Fishing &nbsp;·&nbsp; Reel Log App &nbsp;·&nbsp; Smarter Trips</div>
-      <h1>Fish smarter,<br /><em>not just harder.</em></h1>
+      <div class="hero-badge">🪵 Wood Shop Teacher &nbsp;·&nbsp; Lesson Plans &nbsp;·&nbsp; Apps &nbsp;·&nbsp; Real Teaching</div>
+      <h1>Teaching the shop.<br /><em>Sharing what works.</em></h1>
       <p>
-        I break down real bass fishing trips — what worked, what didn't, and how to use Reel Log to remember the details that actually catch more fish.
+        I'm a high school wood shop teacher. Here you'll find my classroom lesson plans, project plans, apps I've built, and honest thoughts on teaching shop.
       </p>
       <div class="button-row">
-        <a class="btn btn-primary" href="#download">Download Reel Log</a>
-        <a class="btn btn-secondary" href="#lessons">Watch fishing lessons</a>
+        <a class="btn btn-primary" href="lesson-plans.html">Browse Lesson Plans</a>
+        <a class="btn btn-secondary" href="#blog">Read the blog</a>
       </div>
     </section>
   </header>
 
   <main>
 
-    <!-- Intro cards -->
+    <!-- What's here -->
     <section>
       <p class="section-label">What you'll find here</p>
-      <h2 class="section-title">Learn from every trip on the water</h2>
-      <p class="section-subtitle">
-        Bass fishing lessons, Reel Log tutorials, trip breakdowns, and bait patterns — all based on real time on the water.
-      </p>
+      <h2 class="section-title">Everything from the shop classroom</h2>
+      <p class="section-subtitle">Lesson plans, project plans, apps, fishing tools, and real talk about teaching wood shop.</p>
 
-      <div class="grid">
+      <div class="grid-4">
         <div class="card">
-          <div class="card-media apps">📱</div>
+          <div class="card-media cm-plans">🪵</div>
           <div class="card-body">
-            <h3>Reel Log App</h3>
-            <p>Track your trips, catches, baits, weather, and water conditions so you stop forgetting what worked and start fishing smarter.</p>
-            <a href="#reel-log">Learn about Reel Log →</a>
-          </div>
-        </div>
-
-        <div class="card" id="fishing">
-          <div class="card-media fishing">🐟</div>
-          <div class="card-body">
-            <h3>Bass Fishing Lessons</h3>
-            <p>Simple lessons on bait choice, seasonal patterns, weather changes, and how to decide where to fish on any given day.</p>
-            <a href="#lessons">See lessons →</a>
+            <h3>Lesson Plans</h3>
+            <p>Wood shop lesson and project plans for the real classroom — available on Teachers Pay Teachers and Etsy.</p>
+            <a href="lesson-plans.html">Browse plans →</a>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-media trips">🎣</div>
+          <div class="card-media cm-apps">📱</div>
           <div class="card-body">
-            <h3>Trip Breakdowns</h3>
-            <p>Real trip reports — what happened, what worked, what I'd do differently, and what I logged for next time.</p>
-            <a href="#lessons">View breakdowns →</a>
+            <h3>Apps</h3>
+            <p>Apps I've built — starting with Reel Log, a fishing trip tracker, with more in the works.</p>
+            <a href="#apps">See apps →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-media cm-blog">✏️</div>
+          <div class="card-body">
+            <h3>Teaching Blog</h3>
+            <p>Random thoughts, classroom wins, project ideas, and things I wish someone had told me earlier.</p>
+            <a href="#blog">Read posts →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-media cm-fishing">🐟</div>
+          <div class="card-body">
+            <h3>Reel Log & Fishing</h3>
+            <p>Bass fishing lessons and Reel Log — the fishing trip tracker app I built to fish smarter.</p>
+            <a href="#apps">Learn more →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- App screenshots -->
-    <section class="app-showcase" aria-label="Reel Log app screenshots">
-      <div class="app-shot"><img src="images/track-every-catch.png" alt="Reel Log — track every catch with species, size, bait, and location" /></div>
-      <div class="app-shot"><img src="images/find-whats-working.png" alt="Reel Log — find what's working by season, lake, bait, and depth" /></div>
-      <div class="app-shot"><img src="images/filter-details.png" alt="Reel Log — filter your catch log by species, season, water temp, lake, and friends" /></div>
-      <div class="app-shot"><img src="images/keep-spots-private.png" alt="Reel Log — keep your best spots private with location controls" /></div>
-      <div class="app-shot"><img src="images/friends.png" alt="Reel Log — share trips and compare catches with friends" /></div>
-      <div class="app-shot"><img src="images/plan-trips.png" alt="Reel Log — plan trips using your past data and patterns" /></div>
+    <!-- Lesson plans feature -->
+    <section class="feature-section">
+      <p class="section-label">Lesson Plans</p>
+      <h2 class="section-title">Wood Shop Lesson & Project Plans</h2>
+      <p class="section-subtitle">Ready-to-use plans built for real shop classrooms — also available on Teachers Pay Teachers and Etsy.</p>
+
+      <div class="feature">
+        <div>
+          <h2>Real plans from a real shop teacher</h2>
+          <p>Every lesson plan and project plan I sell started in my own classroom. No filler, no fluff — just what works when you're actually running a wood shop.</p>
+          <p>Find plans for beginner through advanced students, covering safety, joinery, projects, and more.</p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="lesson-plans.html">Browse all plans</a>
+          </div>
+          <div class="store-badges">
+            <a class="store-badge" href="#" title="Coming soon">
+              <span class="badge-icon">🛒</span>
+              <span class="badge-text"><small>Available on</small>Teachers Pay Teachers</span>
+            </a>
+            <a class="store-badge" href="#" title="Coming soon">
+              <span class="badge-icon">🧡</span>
+              <span class="badge-text"><small>Available on</small>Etsy</span>
+            </a>
+          </div>
+        </div>
+        <div class="visual-placeholder vp-wood">
+          🪵
+          <span>Wood Shop Plans</span>
+        </div>
+      </div>
     </section>
 
-    <!-- Reel Log feature -->
-    <section class="feature-section" id="reel-log">
+    <!-- Apps -->
+    <section id="apps" class="feature-section">
+      <p class="section-label">Apps</p>
+      <h2 class="section-title">Apps I've Built</h2>
+      <p class="section-subtitle">I build tools to solve real problems — starting with Reel Log for fishing, with more ideas in progress.</p>
+
       <div class="feature">
         <div>
           <p class="section-label">Reel Log App</p>
-          <h2>The fishing log that actually helps you catch more fish</h2>
-          <p>Reel Log lets you track every trip — species, bait, water temp, depth, weather, and location — so that over time you can see exactly what's working and when.</p>
-          <p>I built it because I kept forgetting the details that mattered. Now I never go back to the water without knowing what worked there before.</p>
+          <h2>The fishing log that helps you catch more fish</h2>
+          <p>Reel Log lets you track every trip — species, bait, water temp, depth, weather, and location — so you can see exactly what's working and when.</p>
+          <p>Available free on iPhone and Android.</p>
           <div class="button-row">
-            <a class="btn btn-green" href="#download">Download Reel Log</a>
-            <a class="btn btn-outline" href="#how-it-works">How it works</a>
+            <a class="btn btn-green" href="https://apps.apple.com/us/app/reel-log/id6761637278" target="_blank" rel="noopener">App Store</a>
+            <a class="btn btn-dark" href="https://play.google.com/store/apps/details?id=com.reellogapp.ios" target="_blank" rel="noopener">Google Play</a>
           </div>
         </div>
         <div class="visual-panel">
-          <img src="images/find-whats-working.png" alt="Reel Log patterns screen showing top baits, lakes, depth, and seasonal patterns" />
-        </div>
-      </div>
-
-      <div class="feature" id="download">
-        <div>
-          <p class="section-label">Download Free</p>
-          <h2>Start logging your fishing trips today</h2>
-          <p>Available on iPhone and Android. Free to download — start logging your first trip in minutes.</p>
-          <div class="button-row">
-            <a class="btn btn-green" href="https://apps.apple.com/us/app/reel-log/id6761637278" target="_blank" rel="noopener">Download on the App Store</a>
-            <a class="btn btn-dark" href="https://play.google.com/store/apps/details?id=com.reellogapp.ios" target="_blank" rel="noopener">Get it on Google Play</a>
-          </div>
-        </div>
-        <div class="visual-panel">
-          <img src="images/track-every-catch.png" alt="Reel Log catch tracking screen" />
-        </div>
-      </div>
-
-      <div class="feature" id="how-it-works">
-        <div>
-          <p class="section-label">How it works</p>
-          <h2>Log the details, spot the patterns</h2>
-          <p>After each trip, log where you fished, what you caught, what bait worked, and the conditions. Wind, temp, pressure, water clarity — all of it.</p>
-          <p>Reel Log finds the patterns in your data so you know what to tie on before you even get to the lake.</p>
-        </div>
-        <div class="visual-panel">
-          <img src="images/filter-details.png" alt="Reel Log filter screen showing how to filter your catch log" />
+          <img src="images/find-whats-working.png" alt="Reel Log app — find what's working by season, lake, bait, and depth" />
         </div>
       </div>
     </section>
 
-    <!-- Latest lessons -->
-    <section id="lessons">
-      <p class="section-label">Fishing Lessons</p>
-      <h2 class="section-title">Latest from Semler Teaches</h2>
-      <p class="section-subtitle">
-        Real lessons from real trips. Each one covers one thing worth knowing — a bait choice, a pattern, a condition, or a mistake I won't make again.
-      </p>
+    <!-- Blog -->
+    <section id="blog">
+      <p class="section-label">Teaching Blog</p>
+      <h2 class="section-title">From the Shop Floor</h2>
+      <p class="section-subtitle">Honest posts about teaching wood shop — what's working, what isn't, and what I'm thinking about.</p>
 
-      <div class="grid">
+      <div class="grid-3">
         <div class="card">
-          <div class="card-media post1">🐟</div>
+          <div class="card-media cm-post1">🪵</div>
           <div class="card-body">
-            <h3>How I Track Bass Fishing Patterns</h3>
-            <p>A simple look at how I use weather, bait, and location notes to make better decisions on the next trip.</p>
+            <h3>First Day of Shop Class — What I Actually Do</h3>
+            <p>How I set the tone, cover safety without boring everyone to death, and get students excited for the year.</p>
             <a href="#">Read more →</a>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-media post2">🌦️</div>
+          <div class="card-media cm-post2">🔨</div>
           <div class="card-body">
-            <h3>What Weather Changed the Bite?</h3>
-            <p>How wind, sun, temperature, and pressure can completely change where bass are holding and what they'll eat.</p>
+            <h3>My Favorite Beginner Project and Why</h3>
+            <p>The project that teaches the most skills, keeps students engaged, and actually finishes in a reasonable time.</p>
             <a href="#">Read more →</a>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-media post3">📱</div>
+          <div class="card-media cm-post3">✏️</div>
           <div class="card-body">
-            <h3>How I Use Reel Log After Every Trip</h3>
-            <p>My end-of-trip routine — what I log, why the details matter, and how it's helped me catch more fish over time.</p>
+            <h3>How I Write a Lesson Plan That Actually Works in Shop</h3>
+            <p>Shop class isn't a regular classroom. Here's how I think about planning lessons that actually fit the space.</p>
             <a href="#">Read more →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Follow section -->
+    <!-- Follow -->
     <section id="follow">
       <p class="section-label">Stay connected</p>
-      <h2 class="section-title">Follow Semler Teaches & Reel Log</h2>
-      <p class="section-subtitle">
-        Follow for fishing lessons, trip breakdowns, app updates, and what I'm learning on the water.
-      </p>
+      <h2 class="section-title">Follow Semler Teaches</h2>
+      <p class="section-subtitle">Follow along for lesson plan updates, teaching tips, fishing content, and whatever else is going on in the shop.</p>
 
       <div class="social-grid">
         <div class="social-card">
           <h3>Semler Teaches</h3>
-          <p>Bass fishing lessons, trip breakdowns, bait patterns, and what I'm figuring out on the water.</p>
+          <p>Teaching content, lesson plan updates, shop class ideas, and real talk about education.</p>
           <div class="social-links">
-            <a href="https://www.facebook.com/SemlerTeaches" target="_blank" rel="noopener">📘 Facebook</a>
-            <a href="https://www.instagram.com/semlerteaches" target="_blank" rel="noopener">📸 Instagram</a>
+            <a href="https://youtube.com/@semlerteaches" target="_blank" rel="noopener">▶ YouTube</a>
+            <a href="https://facebook.com/semlerteaches" target="_blank" rel="noopener">📘 Facebook</a>
+            <a href="https://tiktok.com/@semlerteaches" target="_blank" rel="noopener">🎵 TikTok</a>
+            <a href="https://instagram.com/semlerteaches" target="_blank" rel="noopener">📸 Instagram</a>
           </div>
         </div>
 
         <div class="social-card">
           <h3>Reel Log App</h3>
-          <p>App updates, how-to guides, new features, and tips for getting the most out of your fishing logs.</p>
+          <p>App updates, fishing tips, how-to guides, and ways to get more out of your fishing logs.</p>
           <div class="social-links">
             <a href="https://www.facebook.com/ReelLogApp" target="_blank" rel="noopener">📘 Facebook</a>
             <a href="https://www.instagram.com/reellogapp" target="_blank" rel="noopener">📸 Instagram</a>
@@ -628,7 +619,7 @@
     <section class="cta-banner">
       <div>
         <h2>Get in touch</h2>
-        <p>Questions about Reel Log, fishing lessons, or want to say what you caught? Reach out anytime.</p>
+        <p>Questions about lesson plans, apps, or just want to talk shop? Reach out anytime.</p>
       </div>
       <div class="button-row">
         <a class="btn btn-primary" href="mailto:jscrossing@gmail.com">Email Jeremiah</a>
@@ -638,7 +629,7 @@
   </main>
 
   <footer>
-    &copy; 2026 Semler Teaches &nbsp;·&nbsp; Bass fishing lessons &amp; Reel Log app
+    &copy; 2026 Semler Teaches &nbsp;·&nbsp; Wood shop lesson plans, apps &amp; real teaching
   </footer>
 
 </body>
