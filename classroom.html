@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classroom Resources | Semler Teaches</title>
+  <meta name="description" content="Student and classroom resources from Semler Teaches." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f3ed;
+      --text: #1a2530;
+      --muted: #5a6670;
+      --card: #ffffff;
+      --accent: #2a6638;
+      --accent-dark: #163529;
+      --water: #163d57;
+      --gold: #c9963a;
+      --border: #dedad2;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(125deg, #0d1f19 0%, #163d57 100%);
+      color: white;
+      padding: 26px 20px 0;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 80% 15%, rgba(201,150,58,0.28), transparent 30%),
+        radial-gradient(circle at 15% 85%, rgba(42,102,56,0.32), transparent 35%);
+      pointer-events: none;
+    }
+
+    .nav {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-bottom: 8px;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: -0.3px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .logo span { color: var(--gold); }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: white; }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 0 72px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.25);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 em { font-style: normal; color: var(--gold); }
+
+    .hero p {
+      font-size: 1.08rem;
+      max-width: 600px;
+      opacity: 0.9;
+      line-height: 1.7;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 20px 80px;
+    }
+
+    /* ── Gate ── */
+    #gate {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 44px 48px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+
+    #gate .gate-icon { font-size: 3rem; margin-bottom: 16px; }
+
+    #gate h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      margin-bottom: 10px;
+    }
+
+    #gate p {
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-size: 0.97rem;
+    }
+
+    .code-form {
+      display: flex;
+      gap: 10px;
+      max-width: 360px;
+      margin: 0 auto 24px;
+    }
+
+    .code-input {
+      flex: 1;
+      padding: 13px 16px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color 0.15s;
+      outline: none;
+    }
+
+    .code-input:focus { border-color: var(--accent); }
+    .code-input.error { border-color: #c0392b; }
+
+    .btn-submit {
+      padding: 13px 22px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-submit:hover { background: var(--accent-dark); }
+
+    .error-msg {
+      color: #c0392b;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 0 auto 24px;
+      max-width: 360px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .divider::before, .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .no-code-label {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 14px;
+    }
+
+    .store-btns {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: 2px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .store-btn:hover { border-color: var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+    /* ── Resources (hidden until unlocked) ── */
+    #resources { display: none; }
+
+    .resources-header {
+      margin-bottom: 32px;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .resources-header h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+    }
+
+    .resources-header p { color: var(--muted); font-size: 0.97rem; }
+
+    .resource-list { display: flex; flex-direction: column; gap: 12px; }
+
+    .resource-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: box-shadow 0.15s, transform 0.15s;
+    }
+
+    .resource-item:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,0.09); }
+
+    .resource-icon { font-size: 2rem; flex-shrink: 0; }
+
+    .resource-info { flex: 1; }
+
+    .resource-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .resource-info p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .btn-download {
+      display: inline-block;
+      padding: 9px 18px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .btn-download:hover { background: var(--accent-dark); }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 20px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      #gate { padding: 32px 24px; }
+      .code-form { flex-direction: column; }
+      .resource-item { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <a class="logo" href="index.html">Semler<span>Teaches</span></a>
+      <nav class="nav-links">
+        <a href="lesson-plans.html">Lesson Plans</a>
+        <a href="index.html#apps">Apps</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#follow">Follow</a>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="hero-badge">🪵 Classroom Resources</div>
+      <h1>Student <em>Resources</em></h1>
+      <p>Downloads and materials for Mr. Semler's students. Enter your class code to access everything for free.</p>
+    </section>
+  </header>
+
+  <main>
+
+    <!-- Code gate -->
+    <div id="gate">
+      <div class="gate-icon">🔑</div>
+      <h2>Enter your class code</h2>
+      <p>Mr. Semler gave you a code in class — type it below to get free access to all the resources.</p>
+
+      <form class="code-form" onsubmit="checkCode(event)">
+        <input
+          id="codeInput"
+          class="code-input"
+          type="text"
+          placeholder="Class code"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="none"
+          spellcheck="false"
+        />
+        <button class="btn-submit" type="submit">Unlock</button>
+      </form>
+
+      <p class="error-msg" id="errorMsg">That code doesn't look right — check with Mr. Semler.</p>
+
+      <div class="divider">or</div>
+
+      <p class="no-code-label">Don't have a code? Purchase resources here:</p>
+      <div class="store-btns">
+        <a class="store-btn" href="#" target="_blank" rel="noopener">🛒 Teachers Pay Teachers</a>
+        <a class="store-btn" href="#" target="_blank" rel="noopener">🧡 Etsy</a>
+      </div>
+    </div>
+
+    <!-- Resources (shown after correct code) -->
+    <div id="resources">
+      <div class="resources-header">
+        <p class="section-label">Classroom Resources</p>
+        <h2>Your class documents</h2>
+        <p>Click any document below to open it in Google Docs.</p>
+      </div>
+
+      <div class="resource-list" id="resourceList">
+
+        <div class="resource-item">
+          <div class="resource-icon">🗺️</div>
+          <div class="resource-info">
+            <h3>CNC Lake Map</h3>
+            <p>CNC engraved lake map project guide</p>
+          </div>
+          <a class="btn-download" href="https://docs.google.com/document/d/1-_oJL-UCg8wVwwtnYce1WxYfk3o8Sq5j/edit?usp=sharing&ouid=114084493116652994849&rtpof=true&sd=true" target="_blank" rel="noopener">Open</a>
+        </div>
+
+        <div class="resource-item">
+          <div class="resource-icon">🎯</div>
+          <div class="resource-info">
+            <h3>Cribbage Board</h3>
+            <p>Cribbage board project plan</p>
+          </div>
+          <a class="btn-download" href="https://docs.google.com/document/d/1o-a1Sz9-1kejeaCbxujyVPxld1hyGWAy/edit?usp=sharing&ouid=114084493116652994849&rtpof=true&sd=true" target="_blank" rel="noopener">Open</a>
+        </div>
+
+        <div class="resource-item">
+          <div class="resource-icon">💻</div>
+          <div class="resource-info">
+            <h3>DXF Vcarve to Corel Draw</h3>
+            <p>Guide for converting DXF files from Vcarve to Corel Draw</p>
+          </div>
+          <a class="btn-download" href="https://docs.google.com/document/d/1nuzPfeG7qnbg79zxlTECcdltHMKK0BjL/edit?usp=sharing&ouid=114084493116652994849&rtpof=true&sd=true" target="_blank" rel="noopener">Open</a>
+        </div>
+
+        <div class="resource-item">
+          <div class="resource-icon">⚡</div>
+          <div class="resource-info">
+            <h3>Big Laser Sheet</h3>
+            <p>Laser cutter settings and layout — large format</p>
+          </div>
+          <a class="btn-download" href="https://docs.google.com/document/d/1AbtCRkMUEoPntzvpE04EtMNRgxhJ6w6p/edit?usp=sharing&ouid=114084493116652994849&rtpof=true&sd=true" target="_blank" rel="noopener">Open</a>
+        </div>
+
+        <div class="resource-item">
+          <div class="resource-icon">⚡</div>
+          <div class="resource-info">
+            <h3>Small Laser Sheet</h3>
+            <p>Laser cutter quick reference — small format</p>
+          </div>
+          <a class="btn-download" href="https://docs.google.com/document/d/1M4dPFwBHsJ4vgSRSrQRFe0fAqQuXvBv7/edit?usp=sharing&ouid=114084493116652994849&rtpof=true&sd=true" target="_blank" rel="noopener">Open</a>
+        </div>
+
+        <div class="resource-item">
+          <div class="resource-icon">📦</div>
+          <div class="resource-info">
+            <h3>Mitered Box</h3>
+            <p>Mitered box project plan</p>
+          </div>
+          <a class="btn-download" href="https://docs.google.com/document/d/1jg6VirAzl5huY9YTJFGmvyW5b0QaejE9/edit?usp=sharing&ouid=114084493116652994849&rtpof=true&sd=true" target="_blank" rel="noopener">Open</a>
+        </div>
+
+        <div class="resource-item">
+          <div class="resource-icon">📋</div>
+          <div class="resource-info">
+            <h3>Shop Sabre Cheat Sheet</h3>
+            <p>Quick reference guide for the Shop Sabre CNC</p>
+          </div>
+          <a class="btn-download" href="https://docs.google.com/document/d/11-sJUxy8ueJMQdYaVM4eIsx6mRwOORJv/edit?usp=sharing&ouid=114084493116652994849&rtpof=true&sd=true" target="_blank" rel="noopener">Open</a>
+        </div>
+
+        <div class="resource-item">
+          <div class="resource-icon">🔑</div>
+          <div class="resource-info">
+            <h3>Keychain</h3>
+            <p>Laser-cut keychain project plan</p>
+          </div>
+          <a class="btn-download" href="https://docs.google.com/document/d/1F1pEniBtXbaVYAGBN03t5ArBhATVOm3F/edit?usp=sharing&ouid=114084493116652994849&rtpof=true&sd=true" target="_blank" rel="noopener">Open</a>
+        </div>
+
+        <div class="resource-item">
+          <div class="resource-icon">🪑</div>
+          <div class="resource-info">
+            <h3>Stool</h3>
+            <p>Stool project plan</p>
+          </div>
+          <a class="btn-download" href="https://docs.google.com/document/d/13LdBQfQMYd-78xdLYdIgD3mkAMQ_a_cz/edit?usp=sharing&ouid=114084493116652994849&rtpof=true&sd=true" target="_blank" rel="noopener">Open</a>
+        </div>
+
+        <div class="resource-item">
+          <div class="resource-icon">🍖</div>
+          <div class="resource-info">
+            <h3>Charcuterie Board</h3>
+            <p>Charcuterie board project plan</p>
+          </div>
+          <a class="btn-download" href="https://docs.google.com/document/d/1ztzpI_hJ1lGYXeskswfeSHgo1QDTiYPH/edit?usp=sharing&ouid=114084493116652994849&rtpof=true&sd=true" target="_blank" rel="noopener">Open</a>
+        </div>
+
+        <div class="resource-item">
+          <div class="resource-icon">🎨</div>
+          <div class="resource-info">
+            <h3>Inlay</h3>
+            <p>Wood inlay technique guide</p>
+          </div>
+          <a class="btn-download" href="https://docs.google.com/document/d/1-rPYFPnKJUSPJQY7hj6fzsyDiHGUJUio/edit?usp=sharing&ouid=114084493116652994849&rtpof=true&sd=true" target="_blank" rel="noopener">Open</a>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; 2026 Semler Teaches &nbsp;·&nbsp; Wood shop lesson plans, apps &amp; real teaching
+  </footer>
+
+  <script>
+    const CODE = "semler";
+
+    function checkCode(e) {
+      e.preventDefault();
+      const input = document.getElementById("codeInput");
+      const errorMsg = document.getElementById("errorMsg");
+      const entered = input.value.trim().toLowerCase();
+
+      if (entered === CODE) {
+        document.getElementById("gate").style.display = "none";
+        document.getElementById("resources").style.display = "block";
+        sessionStorage.setItem("classroomUnlocked", "1");
+      } else {
+        input.classList.add("error");
+        errorMsg.style.display = "block";
+        input.focus();
+      }
+    }
+
+    document.getElementById("codeInput").addEventListener("input", function () {
+      this.classList.remove("error");
+      document.getElementById("errorMsg").style.display = "none";
+    });
+
+    // Stay unlocked if they reload during the same browser session
+    if (sessionStorage.getItem("classroomUnlocked") === "1") {
+      document.getElementById("gate").style.display = "none";
+      document.getElementById("resources").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
