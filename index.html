@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Semler Teaches | Wood Shop Lesson Plans, Teaching Resources & Apps</title>
-  <meta name="description" content="Semler Teaches is a high school wood shop teacher sharing lesson plans, project plans, teaching resources, apps, and real classroom ideas." />
+  <title>Semler Teaches | Life Skills, Basic Trades & Everyday Fixes</title>
+  <meta name="description" content="Semler Teaches — a high school wood shop teacher sharing life skills, basic trades, and everyday fixes on TikTok, Instagram, and YouTube. Student classroom resources inside." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -82,7 +82,7 @@
     .hero {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 26px 0 64px;
+      padding: 26px 0 60px;
       text-align: center;
     }
 
@@ -110,9 +110,44 @@
     .hero p {
       font-size: 1.15rem;
       max-width: 640px;
-      margin: 0 auto 30px;
+      margin: 0 auto 28px;
       opacity: 0.9;
       line-height: 1.7;
+    }
+
+    /* ── Follow buttons (hero) ── */
+    .follow-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .follow-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+
+    .follow-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.35); }
+    .fb-tiktok    { background: #f6f0e4; color: #1d0e00; }
+    .fb-instagram { background: #E4405F; color: #fff; }
+    .fb-youtube   { background: #FF0000; color: #fff; }
+
+    .hero-note {
+      font-size: 0.92rem;
+      opacity: 0.65;
+      font-style: italic;
     }
 
     .button-row {
@@ -181,14 +216,7 @@
       font-size: 1.05rem;
     }
 
-    /* ── Cards ── */
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-bottom: 64px;
-    }
-
+    /* ── Door cards ── */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -201,51 +229,34 @@
       border: 1px solid var(--border);
       border-top: 5px solid var(--wood);
       border-radius: 8px;
-      overflow: hidden;
+      padding: 26px 26px 24px;
       box-shadow: 0 3px 12px rgba(46,32,20,0.08);
       transition: box-shadow 0.15s, transform 0.15s;
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(46,32,20,0.16); }
 
-    .card-media {
-      height: 96px;
-      display: flex;
-      align-items: flex-end;
-      padding: 12px 18px;
-      font-size: 2.2rem;
-      background:
-        repeating-linear-gradient(90deg, rgba(0,0,0,0.08) 0px, rgba(0,0,0,0.08) 2px, transparent 2px, transparent 90px),
-        linear-gradient(135deg, #3b2000, #7a4a10 70%, #9c6420);
-    }
-
-    .card-body { padding: 18px 20px 20px; }
-
     .card h3 {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.03em;
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
 
     .card p {
       color: var(--muted);
-      font-size: 0.93rem;
-      margin-bottom: 14px;
-      line-height: 1.55;
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+      line-height: 1.6;
+      flex: 1;
     }
 
-    .card a {
-      color: var(--wood);
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 0.92rem;
-    }
+    .card .btn { align-self: flex-start; font-size: 0.9rem; padding: 10px 20px; }
 
-    .card a:hover { color: var(--wood-dark); }
-
-    /* ── Feature rows ── */
+    /* ── Feature row (Reel Log) ── */
     .feature {
       background: var(--card);
       border: 1px solid var(--border);
@@ -256,7 +267,7 @@
       grid-template-columns: 1.15fr 0.85fr;
       gap: 40px;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 64px;
       box-shadow: 0 3px 12px rgba(46,32,20,0.07);
     }
 
@@ -276,8 +287,6 @@
 
     .feature .button-row { justify-content: flex-start; }
 
-    .feature-section { margin-bottom: 64px; }
-
     .visual-panel {
       border-radius: 8px;
       overflow: hidden;
@@ -293,33 +302,6 @@
       padding: 8px;
       background: #1d0e00;
     }
-
-    /* ── Store badges ── */
-    .store-badges {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .store-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 11px 18px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.88rem;
-      border: 2px solid var(--border);
-      background: var(--cream);
-      color: var(--text);
-      transition: border-color 0.15s, box-shadow 0.15s;
-    }
-
-    .store-badge:hover { border-color: var(--wood); box-shadow: 0 4px 12px rgba(46,32,20,0.12); }
-    .store-badge .badge-icon { font-size: 1.4rem; }
-    .store-badge .badge-text small { display: block; font-size: 0.72rem; font-weight: 600; color: var(--muted); }
 
     /* ── Amazon support box ── */
     .support-box {
@@ -351,7 +333,7 @@
     .support-box p { opacity: 0.92; font-size: 1rem; max-width: 560px; }
     .support-box .disclosure { font-size: 0.8rem; opacity: 0.65; margin-top: 10px; }
 
-    /* ── Social ── */
+    /* ── Social cards ── */
     .social-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -433,13 +415,8 @@
     footer .disclosure { font-size: 0.78rem; opacity: 0.6; margin-top: 10px; }
 
     /* ── Responsive ── */
-    @media (max-width: 1000px) {
-      .grid-4 { grid-template-columns: repeat(2, 1fr); }
-    }
-
     @media (max-width: 900px) {
-      .grid-3 { grid-template-columns: 1fr 1fr; }
-      .social-grid { grid-template-columns: 1fr 1fr; }
+      .grid-3, .social-grid { grid-template-columns: 1fr 1fr; }
       .feature, .cta-banner, .support-box { grid-template-columns: 1fr; }
       .cta-banner, .support-box { text-align: center; }
       .cta-banner .button-row, .support-box .button-row { justify-content: center; }
@@ -447,9 +424,10 @@
 
     @media (max-width: 640px) {
       .nav-links a { margin-left: 14px; font-size: 0.85rem; }
-      .hero { padding: 16px 0 52px; }
-      .grid-3, .grid-4, .social-grid { grid-template-columns: 1fr; }
+      .hero { padding: 16px 0 48px; }
+      .grid-3, .social-grid { grid-template-columns: 1fr; }
       .cta-banner, .support-box { padding: 30px 24px; }
+      .follow-btn { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -459,116 +437,67 @@
     <div class="nav">
       <a class="logo" href="index.html">Semler<span>Teaches</span></a>
       <nav class="nav-links">
-        <a href="lesson-plans.html">Lesson Plans</a>
-        <a href="#apps">Apps</a>
-        <a href="#blog">Blog</a>
-        <a href="#follow">Follow</a>
         <a href="classroom.html">Classroom</a>
+        <a href="#app">Reel Log</a>
+        <a href="#follow">Follow</a>
+        <a href="mailto:jscrossing@gmail.com">Contact</a>
       </nav>
     </div>
 
     <section class="hero">
       <img class="hero-banner" src="images/shop-banner.png" alt="Semler Teaches — Life Skills, Basic Trades, Everyday Fixes. A wood shop workbench with hand tools." />
-      <h1>Teaching the shop. <em>Sharing what works.</em></h1>
+      <h1>Life skills. Basic trades. <em>Everyday fixes.</em></h1>
       <p>
-        I'm a high school wood shop teacher. Here you'll find my classroom lesson plans, project plans, apps I've built, and honest thoughts on teaching shop.
+        I'm Jeremiah Semler — a high school wood shop teacher showing you the stuff school stopped teaching: how to build, fix, and figure things out with your own two hands.
       </p>
-      <div class="button-row">
-        <a class="btn btn-gold" href="lesson-plans.html">Browse Lesson Plans</a>
-        <a class="btn btn-outline-light" href="#blog">Read the Blog</a>
+      <div class="follow-row">
+        <a class="follow-btn fb-tiktok" href="https://tiktok.com/@semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="#1d0e00" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a>
+        <a class="follow-btn fb-instagram" href="https://instagram.com/semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>Instagram</a>
+        <a class="follow-btn fb-youtube" href="https://youtube.com/@semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="#ffffff" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
       </div>
+      <p class="hero-note">First videos are on the way — follow now so you don't miss them.</p>
     </section>
   </header>
 
   <main>
 
-    <!-- What's here -->
+    <!-- Doors -->
     <section>
-      <p class="section-label">What you'll find here</p>
-      <h2 class="section-title">Everything from the shop classroom</h2>
-      <p class="section-subtitle">Lesson plans, project plans, apps, fishing tools, and real talk about teaching wood shop.</p>
+      <p class="section-label">Start here</p>
+      <h2 class="section-title">What are you looking for?</h2>
+      <p class="section-subtitle">Whether you're one of my students, a fellow teacher, or just here to learn something useful — there's a door for you.</p>
 
-      <div class="grid-4">
+      <div class="grid-3">
         <div class="card">
-          <div class="card-media">🪵</div>
-          <div class="card-body">
-            <h3>Lesson Plans</h3>
-            <p>Wood shop lesson and project plans for the real classroom — available on Teachers Pay Teachers and Etsy.</p>
-            <a href="lesson-plans.html">Browse plans →</a>
-          </div>
+          <h3>My Students</h3>
+          <p>In one of my classes? All your project plans, cheat sheets, and guides are in the classroom — unlock them with the class code I gave you.</p>
+          <a class="btn btn-wood" href="classroom.html">Open the Classroom</a>
         </div>
 
         <div class="card">
-          <div class="card-media">📱</div>
-          <div class="card-body">
-            <h3>Apps</h3>
-            <p>Apps I've built — starting with Reel Log, a fishing trip tracker, with more in the works.</p>
-            <a href="#apps">See apps →</a>
-          </div>
+          <h3>Here to Learn</h3>
+          <p>Life skills, basic trades, and everyday fixes — short videos coming to TikTok, Instagram, and YouTube. Follow along from the start.</p>
+          <a class="btn btn-gold" href="#follow">Follow Along</a>
         </div>
 
         <div class="card">
-          <div class="card-media">✏️</div>
-          <div class="card-body">
-            <h3>Teaching Blog</h3>
-            <p>Random thoughts, classroom wins, project ideas, and things I wish someone had told me earlier.</p>
-            <a href="#blog">Read posts →</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-media">🐟</div>
-          <div class="card-body">
-            <h3>Reel Log & Fishing</h3>
-            <p>Bass fishing lessons and Reel Log — the fishing trip tracker app I built to fish smarter.</p>
-            <a href="#apps">Learn more →</a>
-          </div>
+          <h3>Shop Teachers</h3>
+          <p>My lesson and project plans are coming to Teachers Pay Teachers and Etsy down the road. Until then, email me — happy to talk shop.</p>
+          <a class="btn btn-dark" href="mailto:jscrossing@gmail.com">Email Jeremiah</a>
         </div>
       </div>
     </section>
 
-    <!-- Lesson plans feature -->
-    <section class="feature-section">
-      <p class="section-label">Lesson Plans</p>
-      <h2 class="section-title">Wood Shop Lesson & Project Plans</h2>
-      <p class="section-subtitle">Ready-to-use plans built for real shop classrooms — also available on Teachers Pay Teachers and Etsy.</p>
+    <!-- Reel Log -->
+    <section id="app">
+      <p class="section-label">Something I built</p>
+      <h2 class="section-title">Reel Log — The Fishing App</h2>
+      <p class="section-subtitle">When I'm not in the shop, I'm on the water. I built Reel Log to track every trip and figure out what actually catches fish.</p>
 
       <div class="feature">
         <div>
-          <h2>Real plans from a real shop teacher</h2>
-          <p>Every lesson plan and project plan I sell started in my own classroom. No filler, no fluff — just what works when you're actually running a wood shop.</p>
-          <p>Find plans for beginner through advanced students, covering safety, joinery, projects, and more.</p>
-          <div class="button-row">
-            <a class="btn btn-wood" href="lesson-plans.html">Browse all plans</a>
-          </div>
-          <div class="store-badges">
-            <a class="store-badge" href="#" title="Coming soon">
-              <span class="badge-icon">🛒</span>
-              <span class="badge-text"><small>Available on</small>Teachers Pay Teachers</span>
-            </a>
-            <a class="store-badge" href="#" title="Coming soon">
-              <span class="badge-icon">🧡</span>
-              <span class="badge-text"><small>Available on</small>Etsy</span>
-            </a>
-          </div>
-        </div>
-        <div class="visual-panel">
-          <img src="images/shop-banner.png" alt="Semler Teaches wood shop workbench banner" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Apps -->
-    <section id="apps" class="feature-section">
-      <p class="section-label">Apps</p>
-      <h2 class="section-title">Apps I've Built</h2>
-      <p class="section-subtitle">I build tools to solve real problems — starting with Reel Log for fishing, with more ideas in progress.</p>
-
-      <div class="feature">
-        <div>
-          <p class="section-label">Reel Log App</p>
           <h2>The fishing log that helps you catch more fish</h2>
-          <p>Reel Log lets you track every trip — species, bait, water temp, depth, weather, and location — so you can see exactly what's working and when.</p>
+          <p>Track every trip — species, bait, water temp, depth, weather, and location — so you can see exactly what's working and when.</p>
           <p>Available free on iPhone and Android.</p>
           <div class="button-row">
             <a class="btn btn-wood" href="https://apps.apple.com/us/app/reel-log/id6761637278" target="_blank" rel="noopener">App Store</a>
@@ -577,42 +506,6 @@
         </div>
         <div class="visual-panel">
           <img src="images/find-whats-working.png" alt="Reel Log app — find what's working by season, lake, bait, and depth" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Blog -->
-    <section id="blog">
-      <p class="section-label">Teaching Blog</p>
-      <h2 class="section-title">From the Shop Floor</h2>
-      <p class="section-subtitle">Honest posts about teaching wood shop — what's working, what isn't, and what I'm thinking about.</p>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-media">🪵</div>
-          <div class="card-body">
-            <h3>First Day of Shop Class — What I Actually Do</h3>
-            <p>How I set the tone, cover safety without boring everyone to death, and get students excited for the year.</p>
-            <a href="#">Read more →</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-media">🔨</div>
-          <div class="card-body">
-            <h3>My Favorite Beginner Project and Why</h3>
-            <p>The project that teaches the most skills, keeps students engaged, and actually finishes in a reasonable time.</p>
-            <a href="#">Read more →</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-media">✏️</div>
-          <div class="card-body">
-            <h3>How I Write a Lesson Plan That Actually Works in Shop</h3>
-            <p>Shop class isn't a regular classroom. Here's how I think about planning lessons that actually fit the space.</p>
-            <a href="#">Read more →</a>
-          </div>
         </div>
       </div>
     </section>
@@ -633,17 +526,17 @@
     <section id="follow">
       <p class="section-label">Stay connected</p>
       <h2 class="section-title">Follow Semler Teaches</h2>
-      <p class="section-subtitle">Follow along for lesson plan updates, teaching tips, fishing content, and whatever else is going on in the shop.</p>
+      <p class="section-subtitle">The main act is on TikTok, Instagram, and YouTube — life skills, basic trades, and everyday fixes from a real shop teacher.</p>
 
       <div class="social-grid">
         <div class="social-card">
           <h3>Semler Teaches</h3>
-          <p>Teaching content, lesson plan updates, shop class ideas, and real talk about education.</p>
+          <p>The main accounts — follow here for life skills, trades, fixes, and shop class content.</p>
           <div class="social-links">
-            <a href="https://youtube.com/@semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
-            <a href="https://facebook.com/semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
             <a href="https://tiktok.com/@semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#010101" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a>
             <a href="https://instagram.com/semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#E4405F" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>Instagram</a>
+            <a href="https://youtube.com/@semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
+            <a href="https://facebook.com/semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
             <a href="https://instagram.com/mrsemlerswoodshop" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#E4405F" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>Shop Class IG</a>
           </div>
         </div>
@@ -673,7 +566,7 @@
     <section class="cta-banner">
       <div>
         <h2>Get in touch</h2>
-        <p>Questions about lesson plans, apps, or just want to talk shop? Reach out anytime.</p>
+        <p>Questions, ideas, or just want to talk shop? Reach out anytime.</p>
       </div>
       <div class="button-row">
         <a class="btn btn-gold" href="mailto:jscrossing@gmail.com">Email Jeremiah</a>
@@ -684,13 +577,13 @@
 
   <footer>
     <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:14px;align-items:center;">
-      <a href="https://youtube.com/@semlerteaches" target="_blank" rel="noopener" title="YouTube" style="display:inline-flex;align-items:center;opacity:0.7;transition:opacity 0.15s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-      <a href="https://facebook.com/semlerteaches" target="_blank" rel="noopener" title="Facebook" style="display:inline-flex;align-items:center;opacity:0.7;transition:opacity 0.15s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
       <a href="https://tiktok.com/@semlerteaches" target="_blank" rel="noopener" title="TikTok" style="display:inline-flex;align-items:center;opacity:0.7;transition:opacity 0.15s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="#ffffff" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
       <a href="https://instagram.com/semlerteaches" target="_blank" rel="noopener" title="Instagram" style="display:inline-flex;align-items:center;opacity:0.7;transition:opacity 0.15s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="#E4405F" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+      <a href="https://youtube.com/@semlerteaches" target="_blank" rel="noopener" title="YouTube" style="display:inline-flex;align-items:center;opacity:0.7;transition:opacity 0.15s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <a href="https://facebook.com/semlerteaches" target="_blank" rel="noopener" title="Facebook" style="display:inline-flex;align-items:center;opacity:0.7;transition:opacity 0.15s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
     </div>
     <div style="margin-bottom:10px;"><a href="https://amzn.to/4e2d30a" target="_blank" rel="sponsored noopener">🛠️ Shop on Amazon to support the site</a></div>
-    &copy; 2026 Semler Teaches &nbsp;·&nbsp; Wood shop lesson plans, apps &amp; real teaching
+    &copy; 2026 Semler Teaches &nbsp;·&nbsp; Life skills, basic trades &amp; everyday fixes
     <p class="disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
   </footer>
 
