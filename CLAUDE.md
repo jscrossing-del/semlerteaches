@@ -6,7 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Static site for semlerteaches.com — a high school wood shop teacher's site. No build step, no framework, no dependencies: three hand-written HTML pages with inline CSS, served by GitHub Pages off `main` (custom domain via `CNAME`). Pushing to `main` deploys the live site.
 
-**Site purpose (decided June 2026):** two jobs only — (1) a student portal (the classroom page) and (2) a link-in-bio home base for the owner's social media push as @semlerteaches on TikTok/Instagram/YouTube. Selling lesson plans is deferred until he has an audience; don't add storefronts, fake "buy" buttons, or a blog. The Amazon affiliate link stays. He has no videos posted yet — the homepage has honest "first videos coming" copy and should get a featured-video embed once real videos exist.
+**Site purpose (decided June 2026; expanded July 2026):** three jobs — (1) a student portal (the classroom page), (2) a link-in-bio home base for the owner's social media push as @semlerteaches on TikTok/Instagram/YouTube, and (3) a lead page for **Semler Web Services**, the owner's web-building business (he does NOT own semlerwebservices.com, so it lives here as the `#web-services` homepage section). Selling lesson plans is deferred until he has an audience; don't add storefronts, fake "buy" buttons, or a blog. The Amazon affiliate link stays. He has no videos posted yet — the homepage has honest "first videos coming" copy and should get a featured-video embed once real videos exist.
+
+**Web Services section (`#web-services`):** business email is `semlerwebservices@gmail.com` (the live CTA). The phone number **612.363.1999 is intentionally NOT public** — the call button is present but commented out; un-comment it (and the `tel:` link) only when the owner has a Google Voice number to use instead of his cell. A `ProfessionalService` JSON-LD block in `index.html`'s `<head>` backs this section — keep it in sync with the section (towns, pricing, email).
 
 ## Commands
 

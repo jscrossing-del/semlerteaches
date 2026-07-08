@@ -5,6 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Semler Teaches | Life Skills, Basic Trades & Everyday Fixes</title>
   <meta name="description" content="Semler Teaches — a high school wood shop teacher sharing life skills, basic trades, and everyday fixes on TikTok, Instagram, and YouTube. Student classroom resources inside." />
+  <link rel="canonical" href="https://semlerteaches.com/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semler Teaches" />
+  <meta property="og:title" content="Semler Teaches | Life Skills, Basic Trades & Everyday Fixes" />
+  <meta property="og:description" content="A high school wood shop teacher sharing life skills, basic trades, and everyday fixes — plus student classroom resources and local website help." />
+  <meta property="og:url" content="https://semlerteaches.com/" />
+  <meta property="og:image" content="https://semlerteaches.com/images/shop-banner.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Semler Teaches | Life Skills, Basic Trades & Everyday Fixes" />
+  <meta name="twitter:description" content="Life skills, basic trades, and everyday fixes from a real shop teacher — classroom resources plus local website help." />
+  <meta name="twitter:image" content="https://semlerteaches.com/images/shop-banner.jpg" />
+
+  <!-- Teaching brand — WebSite + Person structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://semlerteaches.com/#website",
+        "url": "https://semlerteaches.com/",
+        "name": "Semler Teaches",
+        "description": "Life skills, basic trades, and everyday fixes from a high school wood shop teacher."
+      },
+      {
+        "@type": "Person",
+        "@id": "https://semlerteaches.com/#jeremiah",
+        "name": "Jeremiah Semler",
+        "jobTitle": "High school wood shop teacher",
+        "url": "https://semlerteaches.com/",
+        "sameAs": [
+          "https://tiktok.com/@semlerteaches",
+          "https://instagram.com/semlerteaches",
+          "https://youtube.com/@semlerteaches",
+          "https://facebook.com/semlerteaches"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Semler Web Services — LocalBusiness structured data (helps Google tie the Business Profile to this page) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Semler Web Services",
+    "image": "https://semlerteaches.com/images/shop-banner.jpg",
+    "description": "Fast, no-nonsense websites for trades and local businesses in east-central Minnesota — plus hosting, updates, and Google Business Profile setup.",
+    "url": "https://semlerteaches.com/#web-services",
+    "email": "semlerwebservices@gmail.com",
+    "priceRange": "$$",
+    "founder": "Jeremiah Semler",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cambridge",
+      "addressRegion": "MN",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Cambridge, MN" },
+      { "@type": "City", "name": "Isanti, MN" },
+      { "@type": "City", "name": "North Branch, MN" },
+      { "@type": "City", "name": "Braham, MN" },
+      { "@type": "City", "name": "Princeton, MN" },
+      { "@type": "City", "name": "Mora, MN" },
+      { "@type": "City", "name": "Rush City, MN" },
+      { "@type": "City", "name": "Zimmerman, MN" },
+      { "@type": "City", "name": "East Bethel, MN" }
+    ],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website build" }, "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "1200" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website care plan" }, "priceSpecification": { "@type": "UnitPriceSpecification", "priceCurrency": "USD", "price": "50", "unitText": "MONTH" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Business Profile setup" } }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -400,6 +480,32 @@
     }
     .cta-banner p { opacity: 0.88; font-size: 1rem; }
 
+    /* ── Web services ── */
+    .ws-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      margin: 2px 0 30px;
+    }
+
+    .ws-trust span {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .ws-trust svg { flex: none; }
+
+    .ws-area {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin: 26px 0 30px;
+    }
+
+    .ws-area strong { color: var(--wood); }
+
     /* ── Footer ── */
     footer {
       border-top: 6px solid var(--gold);
@@ -438,6 +544,7 @@
       <a class="logo" href="index.html">Semler<span>Teaches</span></a>
       <nav class="nav-links">
         <a href="classroom.html">Classroom</a>
+        <a href="#web-services">Web Services</a>
         <a href="#app">Reel Log</a>
         <a href="#follow">Follow</a>
         <a href="mailto:jscrossing@gmail.com">Contact</a>
@@ -445,7 +552,7 @@
     </div>
 
     <section class="hero">
-      <img class="hero-banner" src="images/shop-banner.png" alt="Semler Teaches — Life Skills, Basic Trades, Everyday Fixes. A wood shop workbench with hand tools." />
+      <img class="hero-banner" src="images/shop-banner.jpg" width="1376" height="768" alt="Semler Teaches — Life Skills, Basic Trades, Everyday Fixes. A wood shop workbench with hand tools." />
       <h1>Passing down life skills, basic trades, <em>and everyday fixes.</em></h1>
       <p>
         All are welcome here. I'm Jeremiah Semler, a high school wood shop teacher — just here to help you navigate life.
@@ -505,7 +612,52 @@
           </div>
         </div>
         <div class="visual-panel">
-          <img src="images/find-whats-working.png" alt="Reel Log app — find what's working by season, lake, bait, and depth" />
+          <img src="images/find-whats-working.jpg" width="370" height="800" alt="Reel Log app — find what's working by season, lake, bait, and depth" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Web Services -->
+    <section id="web-services">
+      <p class="section-label">For local businesses</p>
+      <h2 class="section-title">Need a website that just works?</h2>
+      <p class="section-subtitle">Your phone rings — you never think about the website. I build fast, no-nonsense websites for trades and local businesses around Cambridge, then keep them running, updated, and showing up on Google, so you never have to think about them again.</p>
+
+      <div class="ws-trust">
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#7a4a10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Flat prices, quoted in writing</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#7a4a10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Changes live within 2 business days</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#7a4a10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Your domain is always yours</span>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Website Builds</h3>
+          <p>A fast, professional site that looks right on every phone and gets your number tapped. Flat price quoted up front — builds start at $1,200.</p>
+        </div>
+
+        <div class="card">
+          <h3>Care Plans</h3>
+          <p>Hosting, security, and updates from $50/month. Text me the change, it's live within two business days — and you get a plain-English report every month.</p>
+        </div>
+
+        <div class="card">
+          <h3>Google Business Profile</h3>
+          <p>Setup and cleanup of your Google listing — the map result that drives most local calls. Included with every build.</p>
+        </div>
+      </div>
+
+      <p class="ws-area"><strong>Serving east-central Minnesota:</strong> Cambridge · Isanti · North Branch · Braham · Princeton · Mora · Rush City · Zimmerman · East Bethel. Don't see your town? Reach out — I may still be able to help.</p>
+
+      <div class="cta-banner" style="margin-bottom: 64px;">
+        <div>
+          <h2>Ready to get it handled?</h2>
+          <p>Send a message and I'll get back to you the same business day.</p>
+        </div>
+        <div class="button-row">
+          <!-- PHONE BUTTON: un-comment this when the Google Voice number is live (real line is 612.363.1999):
+          <a class="btn btn-gold" href="tel:+16123631999">Call 612.363.1999</a>
+          -->
+          <a class="btn btn-gold" href="mailto:semlerwebservices@gmail.com?subject=Website%20inquiry">Email Semler Web Services</a>
         </div>
       </div>
     </section>

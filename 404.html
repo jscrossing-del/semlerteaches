@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Semler Teaches</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f0e4;
+      --text: #2e2014;
+      --muted: #6e5d49;
+      --wood: #7a4a10;
+      --gold: #c9963a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Source Sans 3', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .panel {
+      max-width: 560px;
+      background:
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.10) 0px, rgba(0,0,0,0.10) 2px, transparent 2px, transparent 120px),
+        linear-gradient(170deg, #3a2410 0%, #2a1400 100%);
+      color: #f6f0e4;
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 48px 40px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.35);
+    }
+    .code {
+      font-family: 'Oswald', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin: 16px 0 12px;
+    }
+    p { opacity: 0.9; margin-bottom: 28px; line-height: 1.6; }
+    .btn {
+      display: inline-block;
+      padding: 13px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: #2a1400;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,0.3); }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <div class="code">404</div>
+    <h1>Measured twice, cut once — this page got cut short</h1>
+    <p>That link doesn't lead anywhere on the site. Let's get you back to the workbench.</p>
+    <a class="btn" href="/">Back to Semler Teaches</a>
+  </div>
+</body>
+</html>
