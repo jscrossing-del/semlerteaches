@@ -56,7 +56,7 @@
     "@type": "ProfessionalService",
     "name": "Semler Web Services",
     "image": "https://semlerteaches.com/images/shop-banner.jpg",
-    "description": "Fast, no-nonsense websites for trades and local businesses in east-central Minnesota — plus hosting, updates, and Google Business Profile setup.",
+    "description": "Fast, no-nonsense websites for trades and local businesses in east-central Minnesota — plus hosting, updates, Google Business Profile setup, and plain-English AI training for small businesses.",
     "url": "https://semlerteaches.com/#web-services",
     "email": "semlerwebservices@gmail.com",
     "telephone": "+13204250080",
@@ -83,7 +83,8 @@
     "makesOffer": [
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website build" }, "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "1200" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website care plan" }, "priceSpecification": { "@type": "UnitPriceSpecification", "priceCurrency": "USD", "price": "50", "unitText": "MONTH" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Business Profile setup" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Business Profile setup" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI training for small businesses" } }
     ]
   }
   </script>
@@ -304,6 +305,13 @@
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 64px;
+    }
+
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 18px;
       margin-bottom: 64px;
     }
@@ -536,7 +544,7 @@
     @media (max-width: 640px) {
       .nav-links a { margin-left: 14px; font-size: 0.85rem; }
       .hero { padding: 16px 0 48px; }
-      .grid-3, .social-grid { grid-template-columns: 1fr; }
+      .grid-3, .grid-2x2, .social-grid { grid-template-columns: 1fr; }
       .cta-banner, .support-box { padding: 30px 24px; }
       .follow-btn { width: 100%; justify-content: center; }
     }
@@ -626,7 +634,7 @@
     <section id="web-services">
       <p class="section-label">For local businesses</p>
       <h2 class="section-title">Need a website that just works?</h2>
-      <p class="section-subtitle">Your phone rings — you never think about the website. I build fast, no-nonsense websites for trades and local businesses around Cambridge, then keep them running, updated, and showing up on Google, so you never have to think about them again.</p>
+      <p class="section-subtitle">Your phone rings — you never think about the website. I build fast, no-nonsense websites for trades and local businesses around Cambridge, then keep them running, updated, and showing up where people look — on Google, and in AI tools like ChatGPT when folks ask who to call.</p>
 
       <div class="ws-trust">
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#7a4a10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Flat prices, quoted in writing</span>
@@ -634,7 +642,7 @@
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#7a4a10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Your domain is always yours</span>
       </div>
 
-      <div class="grid-3">
+      <div class="grid-2x2">
         <div class="card">
           <h3>Website Builds</h3>
           <p>A fast, professional site that looks right on every phone and gets your number tapped. Flat price quoted up front — builds start at $1,200.</p>
@@ -648,6 +656,11 @@
         <div class="card">
           <h3>Google Business Profile</h3>
           <p>Setup and cleanup of your Google listing — the map result that drives most local calls. Included with every build.</p>
+        </div>
+
+        <div class="card">
+          <h3>AI Training for Small Businesses</h3>
+          <p>Wondering what AI could actually do for your business? Plain-English training for you and your crew — real tools, real examples, no hype. Taught by an actual teacher — reach out and we'll set something up.</p>
         </div>
       </div>
 
