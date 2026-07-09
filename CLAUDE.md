@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Static site for semlerteaches.com — a high school wood shop teacher's site. No build step, no framework, no dependencies: three hand-written HTML pages with inline CSS, served by GitHub Pages off `main` (custom domain via `CNAME`). Pushing to `main` deploys the live site.
+Static site for semlerteaches.com — a high school wood shop teacher's site. No build step, no framework, no dependencies: three hand-written HTML pages with inline CSS, served by Cloudflare Pages off `main` (migrated from GitHub Pages July 2026; DNS is on Cloudflare). Pushing to `main` deploys the live site.
 
 **Site purpose (decided June 2026; expanded July 2026):** three jobs — (1) a student portal (the classroom page), (2) a link-in-bio home base for the owner's social media push as @semlerteaches on TikTok/Instagram/YouTube, and (3) a lead page for **Semler Web Services**, the owner's web-building business (he does NOT own semlerwebservices.com, so it lives here as the `#web-services` homepage section). Selling lesson plans is deferred until he has an audience; don't add storefronts, fake "buy" buttons, or a blog. The Amazon affiliate link stays. He has no videos posted yet — the homepage has honest "first videos coming" copy and should get a featured-video embed once real videos exist.
 
