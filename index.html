@@ -57,7 +57,7 @@
     "name": "Semler Web Services",
     "image": "https://semlerteaches.com/images/shop-banner.jpg",
     "description": "Fast, no-nonsense websites for trades and local businesses in east-central Minnesota — plus hosting, updates, Google Business Profile setup, and plain-English AI training for small businesses.",
-    "url": "https://semlerteaches.com/#web-services",
+    "url": "https://semlerteaches.com/web-services/",
     "email": "semlerwebservices@gmail.com",
     "telephone": "+13204250080",
     "priceRange": "$$",
@@ -265,8 +265,12 @@
     main {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 56px 20px 80px;
+      padding: 64px 20px 80px;
     }
+
+    /* Even breathing room between top-level sections */
+    main > section { margin-bottom: 90px; }
+    main > section:last-child { margin-bottom: 0; }
 
     .section-label {
       font-size: 0.78rem;
@@ -278,8 +282,8 @@
     }
 
     .section-title {
-      font-size: clamp(1.6rem, 3vw, 2.1rem);
-      font-weight: 600;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.02em;
       margin-bottom: 10px;
@@ -398,33 +402,32 @@
 
     /* ── Amazon support box ── */
     .support-box {
-      background:
-        repeating-linear-gradient(90deg, rgba(0,0,0,0.07) 0px, rgba(0,0,0,0.07) 2px, transparent 2px, transparent 120px),
-        linear-gradient(135deg, #3a2410, #2a1400);
-      color: #f6f0e4;
+      background: var(--card);
+      color: var(--text);
       border-radius: 8px;
-      border: 2px solid var(--gold);
-      padding: 40px 44px;
+      border: 1px solid var(--border);
+      border-left: 6px solid var(--gold);
+      padding: 26px 30px;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 32px;
+      gap: 28px;
       align-items: center;
       margin-bottom: 64px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      box-shadow: 0 3px 12px rgba(46,32,20,0.08);
     }
 
     .support-box h2 {
       font-family: 'Oswald', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.35rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.03em;
-      margin-bottom: 8px;
-      color: var(--gold);
+      margin-bottom: 6px;
+      color: var(--wood);
     }
 
-    .support-box p { opacity: 0.92; font-size: 1rem; max-width: 560px; }
-    .support-box .disclosure { font-size: 0.8rem; opacity: 0.65; margin-top: 10px; }
+    .support-box p { color: var(--muted); font-size: 0.98rem; max-width: 560px; }
+    .support-box .disclosure { font-size: 0.8rem; color: var(--muted); opacity: 0.8; margin-top: 8px; }
 
     /* ── Social cards ── */
     .social-grid {
@@ -493,6 +496,17 @@
     }
     .cta-banner p { opacity: 0.88; font-size: 1rem; }
 
+    /* Light variant so consecutive CTAs don't all read as dark boxes */
+    .cta-banner.light {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-left: 6px solid var(--gold);
+      box-shadow: 0 3px 12px rgba(46,32,20,0.08);
+    }
+    .cta-banner.light h2 { color: var(--wood); }
+    .cta-banner.light p { color: var(--muted); opacity: 1; }
+
     /* ── Web services ── */
     .ws-trust {
       display: flex;
@@ -557,9 +571,8 @@
       <a class="logo" href="index.html">Semler<span>Teaches</span></a>
       <nav class="nav-links">
         <a href="classroom.html">Classroom</a>
-        <a href="#web-services">Web Services</a>
+        <a href="/web-services/">Web Services</a>
         <a href="#app">Reel Log</a>
-        <a href="#follow">Follow</a>
         <a href="mailto:jscrossing@gmail.com">Contact</a>
       </nav>
     </div>
@@ -575,170 +588,52 @@
         <a class="follow-btn fb-instagram" href="https://instagram.com/semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>Instagram</a>
         <a class="follow-btn fb-youtube" href="https://youtube.com/@semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="#ffffff" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
       </div>
-      <p class="hero-note">First videos are on the way — follow now so you don't miss them.</p>
+      <p class="hero-note">Check out my latest content — follow along on TikTok, Instagram, and YouTube.</p>
     </section>
   </header>
 
   <main>
 
-    <!-- Doors -->
+    <!-- My Students -->
     <section>
-      <p class="section-label">Start here</p>
-      <h2 class="section-title">What are you looking for?</h2>
-      <p class="section-subtitle">Whether you're one of my students, a fellow teacher, or just here to learn something useful — there's a door for you.</p>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>My Students</h3>
-          <p>In one of my classes? All your project plans, cheat sheets, and guides are in the classroom — unlock them with the class code I gave you.</p>
-          <a class="btn btn-wood" href="classroom.html">Open the Classroom</a>
-        </div>
-
-        <div class="card">
-          <h3>Here to Learn</h3>
-          <p>Life skills, basic trades, and everyday fixes — short videos coming to TikTok, Instagram, and YouTube. Follow along from the start.</p>
-          <a class="btn btn-gold" href="#follow">Follow Along</a>
-        </div>
-
-        <div class="card">
-          <h3>Shop Teachers</h3>
-          <p>My lesson and project plans are coming to Teachers Pay Teachers and Etsy down the road. Until then, email me — happy to talk shop.</p>
-          <a class="btn btn-dark" href="mailto:jscrossing@gmail.com">Email Jeremiah</a>
-        </div>
+      <p class="section-label">In one of my classes?</p>
+      <h2 class="section-title">My Students</h2>
+      <p class="section-subtitle">All your project plans, cheat sheets, and guides live in the classroom — unlock them with the class code I gave you in class. Free, always.</p>
+      <div class="button-row" style="justify-content:flex-start;">
+        <a class="btn btn-wood" href="classroom.html">Open the Classroom</a>
       </div>
     </section>
 
-    <!-- Reel Log -->
-    <section id="app">
-      <p class="section-label">Something I built</p>
-      <h2 class="section-title">Reel Log — The Fishing App</h2>
-      <p class="section-subtitle">When I'm not in the shop, I'm on the water. I built Reel Log to track every trip and figure out what actually catches fish.</p>
-
-      <div class="feature">
-        <div>
-          <h2>The fishing log that helps you catch more fish</h2>
-          <p>Track every trip — species, bait, water temp, depth, weather, and location — so you can see exactly what's working and when.</p>
-          <p>Available free on iPhone and Android.</p>
-          <div class="button-row">
-            <a class="btn btn-wood" href="https://apps.apple.com/us/app/reel-log/id6761637278" target="_blank" rel="noopener">App Store</a>
-            <a class="btn btn-dark" href="https://play.google.com/store/apps/details?id=com.reellogapp.ios" target="_blank" rel="noopener">Google Play</a>
-          </div>
-        </div>
-        <div class="visual-panel">
-          <img src="images/find-whats-working.jpg" width="370" height="800" alt="Reel Log app — find what's working by season, lake, bait, and depth" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Web Services -->
-    <section id="web-services">
+    <!-- Semler Web Services -->
+    <section>
       <p class="section-label">For local businesses</p>
-      <h2 class="section-title">Need a website that just works?</h2>
-      <p class="section-subtitle">Your phone rings — you never think about the website. I build fast, no-nonsense websites for trades and local businesses around Cambridge, then keep them running, updated, and showing up where people look — on Google, and in AI tools like ChatGPT when folks ask who to call.</p>
-
-      <div class="ws-trust">
-        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#7a4a10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Flat prices, quoted in writing</span>
-        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#7a4a10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Changes live within 2 business days</span>
-        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#7a4a10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Your domain is always yours</span>
-      </div>
-
-      <div class="grid-2x2">
-        <div class="card">
-          <h3>Website Builds</h3>
-          <p>A fast, professional site that looks right on every phone and gets your number tapped. Flat price quoted up front — builds start at $1,200.</p>
-        </div>
-
-        <div class="card">
-          <h3>Care Plans</h3>
-          <p>Hosting, security, and updates from $50/month. Text me the change, it's live within two business days — and you get a plain-English report every month.</p>
-        </div>
-
-        <div class="card">
-          <h3>Google Business Profile</h3>
-          <p>Setup and cleanup of your Google listing — the map result that drives most local calls. Included with every build.</p>
-        </div>
-
-        <div class="card">
-          <h3>AI Training for Small Businesses</h3>
-          <p>Wondering what AI could actually do for your business? Plain-English training for you and your crew — real tools, real examples, no hype. Taught by an actual teacher — reach out and we'll set something up.</p>
-        </div>
-      </div>
-
-      <p class="ws-area"><strong>Serving east-central Minnesota:</strong> Cambridge · Isanti · North Branch · Braham · Princeton · Milaca · Mora · Rush City · Zimmerman · East Bethel. Don't see your town? Reach out — I may still be able to help.</p>
-
-      <div class="cta-banner" style="margin-bottom: 64px;">
-        <div>
-          <h2>Ready to get it handled?</h2>
-          <p>Send a message and I'll get back to you the same business day.</p>
-        </div>
-        <div class="button-row">
-          <a class="btn btn-gold" href="tel:+13204250080">Call 320.425.0080</a>
-          <a class="btn btn-gold" href="mailto:semlerwebservices@gmail.com?subject=Website%20inquiry">Email Semler Web Services</a>
-        </div>
+      <h2 class="section-title">Semler Web Services</h2>
+      <p class="section-subtitle">Run a local business or trade? I build fast, no-nonsense websites and keep them showing up on Google — flat prices, no tech headaches. Builds from $1,200, care plans from $50/month.</p>
+      <div class="button-row" style="justify-content:flex-start;">
+        <a class="btn btn-gold" href="/web-services/">See Web Services</a>
       </div>
     </section>
 
-    <!-- Amazon support -->
-    <section class="support-box">
-      <div>
-        <h2>Support the Shop</h2>
-        <p>If you're shopping on Amazon anyway, starting from my link sends a small commission back to support this site and my classroom projects — at no extra cost to you.</p>
-        <p class="disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+    <!-- Reel Log (compact mention) -->
+    <section id="app">
+      <p class="section-label">Something I built on the side</p>
+      <h2 class="section-title">Reel Log</h2>
+      <p class="section-subtitle">When I'm not in the shop, I'm on the water. Reel Log tracks every trip — species, bait, depth, weather, location — so you can see what actually catches fish. Free on iPhone and Android.</p>
+      <div class="button-row" style="justify-content:flex-start;">
+        <a class="btn btn-wood" href="https://apps.apple.com/us/app/reel-log/id6761637278" target="_blank" rel="noopener">App Store</a>
+        <a class="btn btn-dark" href="https://play.google.com/store/apps/details?id=com.reellogapp.ios" target="_blank" rel="noopener">Google Play</a>
       </div>
-      <div class="button-row">
+    </section>
+
+    <!-- Support My Work (Amazon affiliate) -->
+    <section>
+      <p class="section-label">A free way to help</p>
+      <h2 class="section-title">Support My Work</h2>
+      <p class="section-subtitle">If you're shopping on Amazon anyway, starting from my link sends a small commission my way — at no extra cost to you. It helps keep this site and the free content going.</p>
+      <div class="button-row" style="justify-content:flex-start;">
         <a class="btn btn-amazon" href="https://amzn.to/4e2d30a" target="_blank" rel="sponsored noopener">Shop on Amazon</a>
       </div>
-    </section>
-
-    <!-- Follow -->
-    <section id="follow">
-      <p class="section-label">Stay connected</p>
-      <h2 class="section-title">Follow Semler Teaches</h2>
-      <p class="section-subtitle">The main act is on TikTok, Instagram, and YouTube — life skills, basic trades, and everyday fixes from a real shop teacher.</p>
-
-      <div class="social-grid">
-        <div class="social-card">
-          <h3>Semler Teaches</h3>
-          <p>The main accounts — follow here for life skills, trades, fixes, and shop class content.</p>
-          <div class="social-links">
-            <a href="https://tiktok.com/@semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#010101" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a>
-            <a href="https://instagram.com/semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#E4405F" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>Instagram</a>
-            <a href="https://youtube.com/@semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
-            <a href="https://facebook.com/semlerteaches" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
-            <a href="https://instagram.com/mrsemlerswoodshop" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#E4405F" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>Shop Class IG</a>
-          </div>
-        </div>
-
-        <div class="social-card">
-          <h3>Reel Log App</h3>
-          <p>App updates, fishing tips, how-to guides, and ways to get more out of your fishing logs.</p>
-          <div class="social-links">
-            <a href="https://www.facebook.com/ReelLogApp" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
-            <a href="https://www.instagram.com/reellogapp" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#E4405F" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>Instagram</a>
-          </div>
-        </div>
-
-        <div class="social-card">
-          <h3>Personal</h3>
-          <p>Personal content from Jeremiah — outside the classroom and off the clock.</p>
-          <div class="social-links">
-            <a href="https://youtube.com/@jeremiahsemler4468" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
-            <a href="https://instagram.com/jer_semler" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#E4405F" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>Instagram</a>
-            <a href="https://tiktok.com/@prime_jerry" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path fill="#010101" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-banner">
-      <div>
-        <h2>Get in touch</h2>
-        <p>Questions, ideas, or just want to talk shop? Reach out anytime.</p>
-      </div>
-      <div class="button-row">
-        <a class="btn btn-gold" href="mailto:jscrossing@gmail.com">Email Jeremiah</a>
-      </div>
+      <p class="disclosure" style="color: var(--muted); font-size: 0.82rem; margin-top: 14px;">As an Amazon Associate I earn from qualifying purchases.</p>
     </section>
 
   </main>
@@ -750,6 +645,7 @@
       <a href="https://youtube.com/@semlerteaches" target="_blank" rel="noopener" title="YouTube" style="display:inline-flex;align-items:center;opacity:0.7;transition:opacity 0.15s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
       <a href="https://facebook.com/semlerteaches" target="_blank" rel="noopener" title="Facebook" style="display:inline-flex;align-items:center;opacity:0.7;transition:opacity 0.15s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
     </div>
+    <div style="margin-bottom:10px;"><a href="mailto:jscrossing@gmail.com">✉️ Contact Jeremiah</a></div>
     <div style="margin-bottom:10px;"><a href="https://amzn.to/4e2d30a" target="_blank" rel="sponsored noopener">🛠️ Shop on Amazon to support the site</a></div>
     &copy; 2026 Semler Teaches &nbsp;·&nbsp; Life skills, basic trades &amp; everyday fixes
     <p class="disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
