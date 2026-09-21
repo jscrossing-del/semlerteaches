@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Period Timer | Semler Teaches</title>
+<meta name="description" content="Wood-shop classroom period timer with clean-up alarms.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ---- woodworking / craftsman palette ---- */
+    --wood-deep:   #241509;   /* dark walnut base            */
+    --wood:        #3a2413;   /* walnut                       */
+    --panel:       #5a3a1f;   /* oak plaque                   */
+    --panel-2:     #6b4726;   /* lighter oak highlight        */
+    --panel-line:  #8a5c31;   /* routed edge / border         */
+    --cream:       #f4e6cd;   /* parchment text               */
+    --cream-dim:   #cdb491;   /* dim text                     */
+    --brass:       #e0aa48;   /* brass / gold accent          */
+    --brass-bright:#f6c463;
+    --brass-dark:  #b6832e;
+    --ember:       #e2571e;   /* alarm base                   */
+    --ember-bright:#ff8a3d;   /* alarm flash / glow           */
+  }
+  *{ box-sizing: border-box; }
+  html, body{
+    margin:0; padding:0; height:100%;
+    color: var(--cream);
+    font-family: 'Bitter', Georgia, serif;
+    overflow: hidden;
+    /* faux wood grain: warm base + fine + coarse grain lines */
+    background-color: var(--wood-deep);
+    background-image:
+      linear-gradient(90deg, #1f1207 0%, #3a2413 48%, #2c1a0c 100%),
+      repeating-linear-gradient(91deg,
+        rgba(240,210,160,0.05) 0px, rgba(240,210,160,0.05) 1px,
+        transparent 1px, transparent 5px),
+      repeating-linear-gradient(90deg,
+        rgba(0,0,0,0.18) 0px, rgba(0,0,0,0.18) 2px,
+        transparent 2px, transparent 11px);
+    background-blend-mode: normal, overlay, normal;
+  }
+  #app{ position:relative; width:100vw; height:100vh; }
+
+  /* ---------- shared ---------- */
+  button{
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: inherit;
+  }
+  .hidden{ display:none !important; }
+
+  /* ---------- SETUP SCREEN ---------- */
+  #setup{
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 4vh 4vw;
+  }
+  #setup-card{
+    width: 100%;
+    max-width: 660px;
+    background:
+      linear-gradient(180deg, var(--panel-2), var(--panel));
+    border: 2px solid var(--panel-line);
+    border-radius: 14px;
+    padding: 34px 40px 30px;
+    box-shadow:
+      0 18px 40px rgba(0,0,0,0.45),
+      inset 0 1px 0 rgba(255,225,180,0.15),
+      inset 0 0 0 1px rgba(0,0,0,0.25);
+  }
+  #setup-card h1{
+    font-size: clamp(26px, 3vw, 34px);
+    margin: 0 0 4px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--brass-bright);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+  }
+  #setup-card p.sub{
+    margin: 0 0 26px;
+    color: var(--cream-dim);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .period-row{
+    display:grid;
+    grid-template-columns: 30px 1fr 118px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding: 12px 0;
+    border-top: 1px solid rgba(0,0,0,0.28);
+  }
+  .period-row:first-of-type{ border-top: none; }
+  .period-num{
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--brass);
+    font-size: 19px;
+    font-weight: 800;
+  }
+  .field-label{
+    font-size: 12px;
+    color: var(--cream-dim);
+    display:block;
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+  }
+  .period-row input[type="time"],
+  .period-row input[type="number"],
+  .period-row input[type="text"]{
+    width: 100%;
+    background: rgba(20,12,5,0.55);
+    border: 1px solid var(--panel-line);
+    border-radius: 8px;
+    color: var(--cream);
+    padding: 9px 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+  }
+  .period-row input[type="text"]{ font-family: 'Bitter', serif; }
+  .period-row input:focus{
+    outline: 2px solid var(--brass);
+    outline-offset: 1px;
+  }
+  #setup-actions{
+    margin-top: 26px;
+    display:flex;
+    align-items:center;
+    gap: 16px;
+  }
+  #start-btn{
+    background: linear-gradient(180deg, var(--brass-bright), var(--brass));
+    color: #3a2308;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 14px 26px;
+    border-radius: 9px;
+    flex: 1;
+    box-shadow: 0 4px 0 var(--brass-dark), 0 8px 16px rgba(0,0,0,0.35);
+  }
+  #start-btn:hover{ filter: brightness(1.06); }
+  #start-btn:active{ transform: translateY(2px); box-shadow: 0 2px 0 var(--brass-dark); }
+  #test-sound-btn{
+    color: var(--cream-dim);
+    font-size: 13px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  #test-sound-btn:hover{ color: var(--cream); }
+
+  /* ---------- MAIN DISPLAY ---------- */
+  #display{
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    text-align:center;
+    position: relative;
+  }
+  #corner-controls{
+    position:absolute;
+    top: 22px;
+    right: 26px;
+    display:flex;
+    gap: 18px;
+    z-index: 5;
+  }
+  #corner-controls button{
+    color: var(--cream-dim);
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+  #corner-controls button:hover{ color: var(--brass-bright); }
+
+  #tally{
+    position:absolute;
+    top: 24px;
+    left: 26px;
+    display:flex;
+    gap: 10px;
+  }
+  .tally-dot{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid var(--panel-line);
+  }
+  .tally-dot.done{ background: var(--brass-dark); border-color: var(--brass-dark); }
+  .tally-dot.active{ background: var(--brass-bright); border-color: var(--brass-bright); box-shadow: 0 0 10px var(--brass); }
+
+  #period-label{
+    font-size: clamp(22px, 3vw, 30px);
+    color: var(--cream);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  #count-caption{
+    font-size: clamp(12px, 1.4vw, 15px);
+    color: var(--cream-dim);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  #clock-time{
+    font-family:'JetBrains Mono', monospace;
+    font-size: clamp(14px, 1.6vw, 18px);
+    color: var(--cream-dim);
+    margin-bottom: 8px;
+    letter-spacing: 0.06em;
+  }
+  #countdown{
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    font-size: clamp(90px, 21vw, 260px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    color: var(--cream);
+    text-shadow: 0 2px 0 rgba(0,0,0,0.45);
+  }
+  #alarm-message{
+    margin-top: 14px;
+    font-size: clamp(22px, 3.4vw, 40px);
+    font-weight: 700;
+    color: var(--brass-bright);
+    min-height: 1.4em;
+  }
+  #next-btn{
+    margin-top: 38px;
+    background: rgba(20,12,5,0.4);
+    border: 1px solid var(--panel-line);
+    color: var(--cream-dim);
+    font-weight: 600;
+    font-size: clamp(14px, 1.5vw, 16px);
+    padding: 11px 30px;
+    border-radius: 10px;
+  }
+  #next-btn:hover{ color: var(--brass-bright); border-color: var(--brass); }
+
+  /* ---------- ALARM (clean-up) STATE ---------- */
+  /* steady ember alert that holds through the whole clean-up window */
+  #display.alarm{
+    background: radial-gradient(circle at 50% 40%, rgba(255,138,61,0.22), transparent 60%);
+  }
+  #display.alarm #countdown,
+  #display.alarm #period-label,
+  #display.alarm #alarm-message{
+    color: var(--ember-bright);
+    text-shadow: 0 0 22px rgba(255,138,61,0.55), 0 2px 0 rgba(0,0,0,0.4);
+  }
+  /* short attention strobe only for the first several seconds */
+  #display.alarm.flashing{
+    animation: flashbg 0.5s steps(1,end) infinite;
+  }
+  @keyframes flashbg{
+    0%, 49%{ background-color: var(--ember); }
+    50%, 100%{ background-color: #f7ead1; }
+  }
+  #display.alarm.flashing #countdown,
+  #display.alarm.flashing #alarm-message,
+  #display.alarm.flashing #period-label,
+  #display.alarm.flashing #clock-time,
+  #display.alarm.flashing #count-caption{
+    animation: flashtext 0.5s steps(1,end) infinite;
+  }
+  @keyframes flashtext{
+    0%, 49%{ color: #2a1408; }
+    50%, 100%{ color: var(--ember-bright); }
+  }
+  #display.alarm.flashing .tally-dot.active{
+    animation: flashtext 0.5s steps(1,end) infinite;
+    background: currentColor;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    #display.alarm.flashing{ animation: none; background-color: var(--ember); }
+    #display.alarm.flashing #countdown, #display.alarm.flashing #alarm-message,
+    #display.alarm.flashing #period-label, #display.alarm.flashing #clock-time,
+    #display.alarm.flashing #count-caption{ animation: none; color: #2a1408; }
+  }
+
+  /* ---------- DAY COMPLETE ---------- */
+  #complete{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 0 6vw;
+  }
+  #complete h1{
+    font-size: clamp(34px, 5vw, 56px);
+    margin: 0 0 12px;
+    color: var(--brass-bright);
+  }
+  #complete p{
+    color: var(--cream-dim);
+    font-size: 17px;
+    margin: 0 0 30px;
+  }
+  #restart-btn{
+    background: linear-gradient(180deg, var(--panel-2), var(--panel));
+    border: 1px solid var(--panel-line);
+    color: var(--cream);
+    padding: 13px 30px;
+    border-radius: 9px;
+    font-size: 15px;
+  }
+  #restart-btn:hover{ border-color: var(--brass); color: var(--brass-bright); }
+
+  @media (max-width: 620px){
+    .period-row{ grid-template-columns: 24px 1fr; row-gap: 6px; }
+    .period-row .field-label{ grid-column: 2; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- SETUP -->
+  <section id="setup">
+    <div id="setup-card">
+      <h1>Class period timer</h1>
+      <p class="sub">Your schedule is already filled in below. Just press <strong>Start the day</strong> once each morning &mdash; the timer runs itself, sounds the clean-up alarm 5 minutes before each bell, and moves to the next period on its own. (Adjust any time here if the schedule changes.)</p>
+      <div id="period-rows"></div>
+      <div id="setup-actions">
+        <button id="start-btn">Start the day</button>
+        <button id="test-sound-btn" type="button">Test alarm sound</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN DISPLAY -->
+  <section id="display" class="hidden">
+    <div id="tally"></div>
+    <div id="corner-controls">
+      <button id="mute-btn" type="button">Mute</button>
+      <button id="edit-btn" type="button">Edit times</button>
+    </div>
+    <div id="clock-time"></div>
+    <div id="period-label"></div>
+    <div id="count-caption"></div>
+    <div id="countdown">00:00</div>
+    <div id="alarm-message"></div>
+    <button id="next-btn" type="button">Skip to next period</button>
+  </section>
+
+  <!-- DAY COMPLETE -->
+  <section id="complete" class="hidden">
+    <h1>That's the last bell.</h1>
+    <p>Nice work today.</p>
+    <button id="restart-btn" type="button">Back to the schedule</button>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  // ---- your default schedule (24-hour times) ----
+  // end = bell time; warn = minutes before the bell to sound the clean-up alarm
+  var DEFAULT_PERIODS = [
+    { label: 'Hour 1', end: '09:34', warn: 5 },
+    { label: 'Hour 2', end: '10:33', warn: 5 },
+    { label: 'Hour 3', end: '11:32', warn: 5 },
+    { label: 'Hour 5', end: '14:11', warn: 5 },
+    { label: 'Hour 6', end: '15:10', warn: 5 }
+  ];
+
+  var FLASH_MS = 8000;      // how long the screen strobes at the start of an alarm
+  var BEEP_COUNT = 20;      // number of clean-up beeps (~9-10s) before it goes quiet
+
+  var periods = [];
+  var currentIndex = 0;
+  var alarmActive = false;
+  var muted = false;
+  var audioCtx = null;
+  var beepTimer = null;
+  var flashTimer = null;
+  var tickTimer = null;
+
+  var $setup = document.getElementById('setup');
+  var $rows = document.getElementById('period-rows');
+  var $startBtn = document.getElementById('start-btn');
+  var $testSoundBtn = document.getElementById('test-sound-btn');
+
+  var $display = document.getElementById('display');
+  var $tally = document.getElementById('tally');
+  var $periodLabel = document.getElementById('period-label');
+  var $countCaption = document.getElementById('count-caption');
+  var $clockTime = document.getElementById('clock-time');
+  var $countdown = document.getElementById('countdown');
+  var $alarmMessage = document.getElementById('alarm-message');
+  var $nextBtn = document.getElementById('next-btn');
+  var $muteBtn = document.getElementById('mute-btn');
+  var $editBtn = document.getElementById('edit-btn');
+
+  var $complete = document.getElementById('complete');
+  var $restartBtn = document.getElementById('restart-btn');
+
+  // ---------- load config from URL hash, if present ----------
+  var HASH_VERSION = 2;   // bump this to retire old saved schedules
+  function loadFromHash(){
+    if (location.hash.length > 1){
+      try{
+        var json = decodeURIComponent(escape(atob(location.hash.slice(1))));
+        var parsed = JSON.parse(json);
+        if (parsed && parsed.v === HASH_VERSION &&
+            Array.isArray(parsed.periods) && parsed.periods.length === 5){
+          return parsed.periods;
+        }
+      }catch(e){ /* ignore bad hash */ }
+      // stale or unrecognized schedule -> drop it so defaults win
+      try{ history.replaceState(null, '', location.pathname + location.search); }catch(e){}
+    }
+    return null;
+  }
+  function saveToHash(){
+    var json = JSON.stringify({ v: HASH_VERSION, periods: periods });
+    location.hash = btoa(unescape(encodeURIComponent(json)));
+  }
+
+  // ---------- build setup rows ----------
+  function buildSetupRows(initial){
+    $rows.innerHTML = '';
+    initial.forEach(function(p, i){
+      var row = document.createElement('div');
+      row.className = 'period-row';
+      row.innerHTML =
+        '<span class="period-num">' + (i+1) + '</span>' +
+        '<div><span class="field-label">Ends at (bell)</span>' +
+          '<input type="time" data-idx="' + i + '" data-field="end" value="' + p.end + '"></div>' +
+        '<div><span class="field-label">Alarm (min before)</span>' +
+          '<input type="number" min="0" max="30" data-idx="' + i + '" data-field="warn" value="' + p.warn + '"></div>' +
+        '<div><span class="field-label">Label</span>' +
+          '<input type="text" data-idx="' + i + '" data-field="label" value="' + p.label + '"></div>';
+      $rows.appendChild(row);
+    });
+  }
+
+  function readSetupRows(){
+    var result = DEFAULT_PERIODS.map(function(p){ return { label:p.label, end:p.end, warn:p.warn }; });
+    $rows.querySelectorAll('input').forEach(function(input){
+      var idx = parseInt(input.getAttribute('data-idx'), 10);
+      var field = input.getAttribute('data-field');
+      if (field === 'warn'){
+        result[idx][field] = Math.max(0, parseInt(input.value, 10) || 0);
+      } else {
+        result[idx][field] = input.value || result[idx][field];
+      }
+    });
+    return result;
+  }
+
+  // ---------- audio ----------
+  function ensureAudio(){
+    if (!audioCtx){
+      var Ctx = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new Ctx();
+    }
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+  }
+  function beepOnce(){
+    if (muted || !audioCtx) return;
+    var osc = audioCtx.createOscillator();
+    var gain = audioCtx.createGain();
+    osc.type = 'square';
+    osc.frequency.value = 880;
+    gain.gain.value = 0.0001;
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    var now = audioCtx.currentTime;
+    gain.gain.exponentialRampToValueAtTime(0.35, now + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.28);
+    osc.start(now);
+    osc.stop(now + 0.3);
+  }
+  // warm decaying bell tone for the actual period-end
+  function bellChime(){
+    if (muted || !audioCtx) return;
+    var now = audioCtx.currentTime;
+    var partials = [
+      { f: 523.25, g: 0.32, d: 1.8 },  // C5 fundamental
+      { f: 1046.5, g: 0.16, d: 1.4 },  // octave
+      { f: 1567.9, g: 0.08, d: 1.0 }   // fifth above
+    ];
+    partials.forEach(function(p){
+      var osc = audioCtx.createOscillator();
+      var gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = p.f;
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(p.g, now + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + p.d);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + p.d + 0.05);
+    });
+  }
+  function startAlarmSound(){
+    ensureAudio();
+    stopAlarmSound();
+    var count = 0;
+    beepOnce();
+    beepTimer = setInterval(function(){
+      count++;
+      if (count >= BEEP_COUNT){ stopAlarmSound(); return; }
+      beepOnce();
+    }, 450);
+  }
+  function stopAlarmSound(){
+    if (beepTimer){ clearInterval(beepTimer); beepTimer = null; }
+  }
+
+  // ---------- tally dots ----------
+  function renderTally(){
+    $tally.innerHTML = '';
+    periods.forEach(function(p, i){
+      var dot = document.createElement('div');
+      dot.className = 'tally-dot' + (i < currentIndex ? ' done' : (i === currentIndex ? ' active' : ''));
+      $tally.appendChild(dot);
+    });
+  }
+
+  // ---------- time helpers ----------
+  function getEndDate(timeStr){
+    var parts = timeStr.split(':');
+    var d = new Date();
+    d.setHours(parseInt(parts[0],10), parseInt(parts[1],10), 0, 0);
+    return d;
+  }
+  function formatRemaining(ms){
+    var totalSec = Math.max(0, Math.round(ms / 1000));
+    var h = Math.floor(totalSec / 3600);
+    var m = Math.floor((totalSec % 3600) / 60);
+    var s = totalSec % 60;
+    var pad = function(n){ return n < 10 ? '0' + n : '' + n; };
+    return h > 0 ? (h + ':' + pad(m) + ':' + pad(s)) : (pad(m) + ':' + pad(s));
+  }
+
+  function enterAlarm(){
+    alarmActive = true;
+    $display.classList.add('alarm', 'flashing');
+    $alarmMessage.textContent = 'Time to clean up';
+    startAlarmSound();
+    if (flashTimer) clearTimeout(flashTimer);
+    flashTimer = setTimeout(function(){ $display.classList.remove('flashing'); }, FLASH_MS);
+  }
+  function clearAlarm(){
+    alarmActive = false;
+    $display.classList.remove('alarm', 'flashing');
+    $alarmMessage.textContent = '';
+    stopAlarmSound();
+    if (flashTimer){ clearTimeout(flashTimer); flashTimer = null; }
+  }
+
+  // ---------- main loop ----------
+  function tick(){
+    var now = new Date();
+    $clockTime.textContent = now.toLocaleTimeString([], { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+
+    if (currentIndex >= periods.length){
+      showComplete();
+      return;
+    }
+
+    var p = periods[currentIndex];
+    var endDate = getEndDate(p.end);                       // bell time
+    var alarmTarget = new Date(endDate.getTime() - p.warn * 60000);
+
+    // period is over -> ring the bell (if we were in clean-up) and auto-advance
+    if (now >= endDate){
+      var wasAlarm = alarmActive;
+      clearAlarm();
+      if (wasAlarm) bellChime();
+      currentIndex++;
+      renderTally();
+      tick();               // re-evaluate for the next period immediately
+      return;
+    }
+
+    $periodLabel.textContent = p.label;
+
+    if (now >= alarmTarget){
+      // ---- clean-up window: count down to the actual bell ----
+      $countCaption.textContent = 'until the bell';
+      $countdown.textContent = formatRemaining(endDate - now);
+      if (!alarmActive) enterAlarm();
+    } else {
+      // ---- normal: count down to the clean-up alarm ----
+      $countCaption.textContent = 'until clean-up';
+      $countdown.textContent = formatRemaining(alarmTarget - now);
+      if (alarmActive) clearAlarm();
+    }
+  }
+
+  function goToPeriod(idx){
+    currentIndex = idx;
+    clearAlarm();
+    renderTally();
+    tick();
+  }
+
+  function showComplete(){
+    clearInterval(tickTimer);
+    clearAlarm();
+    $display.classList.add('hidden');
+    $complete.classList.remove('hidden');
+  }
+
+  function startDay(){
+    periods = readSetupRows();
+    saveToHash();
+    $setup.classList.add('hidden');
+    $complete.classList.add('hidden');
+    $display.classList.remove('hidden');
+    ensureAudio();
+    goToPeriod(0);
+    clearInterval(tickTimer);
+    tickTimer = setInterval(tick, 250);
+  }
+
+  // ---------- events ----------
+  $startBtn.addEventListener('click', startDay);
+
+  $testSoundBtn.addEventListener('click', function(){
+    ensureAudio();
+    beepOnce();
+    setTimeout(beepOnce, 450);
+    setTimeout(bellChime, 1100);
+  });
+
+  $nextBtn.addEventListener('click', function(){
+    ensureAudio();
+    goToPeriod(currentIndex + 1);
+  });
+
+  $muteBtn.addEventListener('click', function(){
+    muted = !muted;
+    $muteBtn.textContent = muted ? 'Unmute' : 'Mute';
+    if (muted) stopAlarmSound();
+    else if (alarmActive) startAlarmSound();
+  });
+
+  $editBtn.addEventListener('click', function(){
+    clearInterval(tickTimer);
+    clearAlarm();
+    $display.classList.add('hidden');
+    $complete.classList.add('hidden');
+    buildSetupRows(periods.length ? periods : DEFAULT_PERIODS);
+    $setup.classList.remove('hidden');
+  });
+
+  $restartBtn.addEventListener('click', function(){
+    // Real clock times can't be replayed later in the day, so this returns
+    // to the schedule screen — ready to press Start again (e.g. next morning).
+    clearInterval(tickTimer);
+    clearAlarm();
+    $complete.classList.add('hidden');
+    $display.classList.add('hidden');
+    buildSetupRows(periods.length ? periods : DEFAULT_PERIODS);
+    $setup.classList.remove('hidden');
+  });
+
+  // ---------- init ----------
+  var fromHash = loadFromHash();
+  buildSetupRows(fromHash || DEFAULT_PERIODS);
+})();
+</script>
+</body>
+</html>
