@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Class Period Timer | Semler Teaches</title>
+<title>Semler's Clean Up Timer | Semler Teaches</title>
 <meta name="description" content="Wood-shop classroom period timer with clean-up alarms.">
 <meta name="robots" content="noindex, follow">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -289,6 +289,20 @@
     #display.alarm.flashing #count-caption{ animation: none; color: #2a1408; }
   }
 
+  #display-title{
+    position:absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(14px, 1.8vw, 20px);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--brass);
+    white-space: nowrap;
+    z-index: 4;
+  }
+
   /* ---------- DAY COMPLETE ---------- */
   #complete{
     height:100%;
@@ -331,7 +345,7 @@
   <!-- SETUP -->
   <section id="setup">
     <div id="setup-card">
-      <h1>Class period timer</h1>
+      <h1>Semler's Clean Up Timer</h1>
       <p class="sub">Your schedule is already filled in below. Just press <strong>Start the day</strong> once each morning &mdash; the timer runs itself, sounds the clean-up alarm 5 minutes before each bell, and moves to the next period on its own. (Adjust any time here if the schedule changes.)</p>
       <div id="period-rows"></div>
       <div id="setup-actions">
@@ -343,6 +357,7 @@
 
   <!-- MAIN DISPLAY -->
   <section id="display" class="hidden">
+    <div id="display-title">Semler's Clean Up Timer</div>
     <div id="tally"></div>
     <div id="corner-controls">
       <button id="mute-btn" type="button">Mute</button>
