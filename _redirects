@@ -1,2 +1,5 @@
 # Keep internal AI-instruction notes from being served publicly
 /CLAUDE.md    /404.html    404
+
+# Semler Web Services was removed Nov 2026 — send old/indexed links to the homepage
+/web-services/*    /    301
